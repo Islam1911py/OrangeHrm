@@ -1,0 +1,33 @@
+ok   Login page
+ok   Create a fresh ESS user as Admin
+ok   Login as the ESS user and landing page
+ok   Open My Info
+ok   Tab: Personal Details
+ok   Tab: Contact Details
+ok   Tab: Emergency Contacts
+ok   Tab: Dependents
+ok   Tab: Immigration
+ok   Tab: Job
+ok   Tab: Salary
+ok   Tab: Report-to
+ok   Tab: Qualifications
+ok   Tab: Memberships
+ok   Personal Details: dropdown options
+ok   Personal Details: invalid date message
+ok   Personal Details: empty first name + Save
+ok   Personal Details: Save without changes (toast text)
+ok   Add form: Emergency Contacts
+ok   Add form: Dependents
+ok   Add form: Immigration
+ok   Add form: Memberships
+ok   Add form: Qualifications - Work Experience
+ok   Add form: Qualifications - Education
+ok   Add form: Qualifications - Skills
+ok   Add form: Qualifications - Languages
+ok   Add form: Qualifications - License
+ok   Add form: Qualifications - Attachments
+ok   Dependents: relationship "Other" shows Please Specify
+ok   Attachment: size and type messages
+ok   Emergency Contacts: create, edit form, delete dialog
+
+Done. Send the folder "explore-output" (zipped). Problems: 0
