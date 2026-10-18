@@ -1,0 +1,135 @@
+{
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmergencyContacts/empNumber/186",
+  "headings": [
+    "PIM",
+    "Aglae Gleichnerfke",
+    "Save Emergency Contact",
+    "Assigned Emergency Contacts",
+    "Attachments"
+  ],
+  "tabs": [
+    "Personal Details",
+    "Contact Details",
+    "Emergency Contacts",
+    "Dependents",
+    "Immigration",
+    "Job",
+    "Salary",
+    "Report-to",
+    "Qualifications",
+    "Memberships"
+  ],
+  "inputs": [
+    {
+      "label": "",
+      "type": "text",
+      "name": null,
+      "placeholder": "Search",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Name",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": true
+    },
+    {
+      "label": "Relationship",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": true
+    },
+    {
+      "label": "Home Telephone",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Mobile",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Work Telephone",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "dropdowns": [],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "disabled": false
+    },
+    {
+      "text": "Save",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    }
+  ],
+  "tableColumns": [
+    "Name",
+    "Relationship",
+    "Home Telephone",
+    "Mobile",
+    "Work Telephone",
+    "Actions",
+    "File Name",
+    "Description",
+    "Size",
+    "Type",
+    "Date Added",
+    "Added By",
+    "Actions"
+  ],
+  "tableRows": 0,
+  "errors": [],
+  "toasts": [],
+  "dialogs": [],
+  "emptyMessage": true
+}

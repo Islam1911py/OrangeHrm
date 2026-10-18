@@ -1,0 +1,210 @@
+{
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewQualifications/empNumber/186",
+  "headings": [
+    "PIM",
+    "Aglae Gleichnerfke",
+    "Qualifications",
+    "Add Work Experience",
+    "Work Experience",
+    "Education",
+    "Skills",
+    "Languages",
+    "License",
+    "Attachments"
+  ],
+  "tabs": [
+    "Personal Details",
+    "Contact Details",
+    "Emergency Contacts",
+    "Dependents",
+    "Immigration",
+    "Job",
+    "Salary",
+    "Report-to",
+    "Qualifications",
+    "Memberships"
+  ],
+  "inputs": [
+    {
+      "label": "",
+      "type": "text",
+      "name": null,
+      "placeholder": "Search",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Company",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": true
+    },
+    {
+      "label": "Job Title",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": true
+    },
+    {
+      "label": "From",
+      "type": "text",
+      "name": null,
+      "placeholder": "yyyy-dd-mm",
+      "value": "2030-10-10",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "To",
+      "type": "text",
+      "name": null,
+      "placeholder": "yyyy-dd-mm",
+      "value": "2020-10-10",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Comment",
+      "type": "textarea",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "dropdowns": [],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "disabled": false
+    },
+    {
+      "text": "Save",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    }
+  ],
+  "tableColumns": [
+    "Company",
+    "Job Title",
+    "From",
+    "To",
+    "Comment",
+    "Actions",
+    "Level",
+    "Year",
+    "GPA/Score",
+    "Actions",
+    "Skill",
+    "Years of Experience",
+    "Actions",
+    "Language",
+    "Fluency",
+    "Competency",
+    "Comments",
+    "Actions",
+    "License Type",
+    "Issued Date",
+    "Expiry Date",
+    "Actions",
+    "File Name",
+    "Description",
+    "Size",
+    "Type",
+    "Date Added",
+    "Added By",
+    "Actions"
+  ],
+  "tableRows": 0,
+  "errors": [
+    "To date should be after from date"
+  ],
+  "toasts": [],
+  "dialogs": [],
+  "emptyMessage": true
+}

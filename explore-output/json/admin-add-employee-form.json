@@ -1,0 +1,94 @@
+{
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee",
+  "headings": [
+    "PIM",
+    "Add Employee"
+  ],
+  "tabs": [],
+  "inputs": [
+    {
+      "label": "",
+      "type": "text",
+      "name": null,
+      "placeholder": "Search",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "file",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "text",
+      "name": "firstName",
+      "placeholder": "First Name",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "text",
+      "name": "middleName",
+      "placeholder": "Middle Name",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "text",
+      "name": "lastName",
+      "placeholder": "Last Name",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Employee Id",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "0388",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "dropdowns": [],
+  "buttons": [
+    {
+      "text": "Upgrade",
+      "disabled": false
+    },
+    {
+      "text": "Cancel",
+      "disabled": false
+    },
+    {
+      "text": "Save",
+      "disabled": false
+    }
+  ],
+  "tableColumns": [],
+  "tableRows": 0,
+  "errors": [],
+  "toasts": [],
+  "dialogs": [],
+  "emptyMessage": false
+}

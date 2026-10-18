@@ -1,0 +1,94 @@
+{
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmergencyContacts/empNumber/186",
+  "headings": [
+    "PIM",
+    "Aglae Gleichnerfke",
+    "Assigned Emergency Contacts",
+    "Attachments"
+  ],
+  "tabs": [
+    "Personal Details",
+    "Contact Details",
+    "Emergency Contacts",
+    "Dependents",
+    "Immigration",
+    "Job",
+    "Salary",
+    "Report-to",
+    "Qualifications",
+    "Memberships"
+  ],
+  "inputs": [
+    {
+      "label": "",
+      "type": "text",
+      "name": null,
+      "placeholder": "Search",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "0",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "dropdowns": [],
+  "buttons": [
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Delete Selected",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    }
+  ],
+  "tableColumns": [
+    "Name",
+    "Relationship",
+    "Home Telephone",
+    "Mobile",
+    "Work Telephone",
+    "Actions",
+    "File Name",
+    "Description",
+    "Size",
+    "Type",
+    "Date Added",
+    "Added By",
+    "Actions"
+  ],
+  "tableRows": 1,
+  "errors": [],
+  "toasts": [],
+  "dialogs": [],
+  "emptyMessage": true
+}

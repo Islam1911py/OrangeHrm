@@ -1,0 +1,182 @@
+- complementary:
+  - navigation "Sidepanel":
+    - link "client brand banner":
+      - /url: https://www.orangehrm.com/
+      - img "client brand banner"
+    - textbox "Search"
+    - button ""
+    - separator
+    - list:
+      - listitem:
+        - link "Leave":
+          - /url: /web/index.php/leave/viewLeaveModule
+      - listitem:
+        - link "Time":
+          - /url: /web/index.php/time/viewTimeModule
+      - listitem:
+        - link "My Info":
+          - /url: /web/index.php/pim/viewMyDetails
+      - listitem:
+        - link "Performance":
+          - /url: /web/index.php/performance/viewPerformanceModule
+      - listitem:
+        - link "Dashboard":
+          - /url: /web/index.php/dashboard/index
+      - listitem:
+        - link "Directory":
+          - /url: /web/index.php/directory/viewDirectory
+      - listitem:
+        - link "Claim":
+          - /url: /web/index.php/claim/viewClaimModule
+          - img
+          - text: Claim
+      - listitem:
+        - link "Buzz":
+          - /url: /web/index.php/buzz/viewBuzz
+- banner:
+  - heading "PIM" [level=6]
+  - list:
+    - listitem:
+      - img "profile picture"
+      - paragraph: Aglae Gleichnerfke
+      - text: 
+  - navigation "Topbar Menu":
+    - list:
+      - button ""
+- heading "Aglae Gleichnerfke" [level=6]
+- img "profile picture"
+- tablist:
+  - tab "Personal Details":
+    - link "Personal Details":
+      - /url: /web/index.php/pim/viewPersonalDetails/empNumber/186
+  - tab "Contact Details":
+    - link "Contact Details":
+      - /url: /web/index.php/pim/contactDetails/empNumber/186
+  - tab "Emergency Contacts":
+    - link "Emergency Contacts":
+      - /url: /web/index.php/pim/viewEmergencyContacts/empNumber/186
+  - tab "Dependents":
+    - link "Dependents":
+      - /url: /web/index.php/pim/viewDependents/empNumber/186
+  - tab "Immigration":
+    - link "Immigration":
+      - /url: /web/index.php/pim/viewImmigration/empNumber/186
+  - tab "Job":
+    - link "Job":
+      - /url: /web/index.php/pim/viewJobDetails/empNumber/186
+  - tab "Salary":
+    - link "Salary":
+      - /url: /web/index.php/pim/viewSalaryList/empNumber/186
+  - tab "Report-to":
+    - link "Report-to":
+      - /url: /web/index.php/pim/viewReportToDetails/empNumber/186
+  - tab "Qualifications":
+    - link "Qualifications":
+      - /url: /web/index.php/pim/viewQualifications/empNumber/186
+  - tab "Memberships":
+    - link "Memberships":
+      - /url: /web/index.php/pim/viewMemberships/empNumber/186
+- heading "Qualifications" [level=6]
+- separator
+- heading "Work Experience" [level=6]
+- button " Add"
+- separator
+- text: No Records Found
+- table:
+  - rowgroup:
+    - row " Company Job Title From To Comment Actions":
+      - columnheader "":
+        - checkbox ""
+        - text: 
+      - columnheader "Company"
+      - columnheader "Job Title"
+      - columnheader "From"
+      - columnheader "To"
+      - columnheader "Comment"
+      - columnheader "Actions"
+  - rowgroup
+- heading "Education" [level=6]
+- button " Add"
+- separator
+- text: No Records Found
+- table:
+  - rowgroup:
+    - row " Level Year GPA/Score Actions":
+      - columnheader "":
+        - checkbox ""
+        - text: 
+      - columnheader "Level"
+      - columnheader "Year"
+      - columnheader "GPA/Score"
+      - columnheader "Actions"
+  - rowgroup
+- heading "Skills" [level=6]
+- button " Add"
+- separator
+- text: No Records Found
+- table:
+  - rowgroup:
+    - row " Skill Years of Experience Actions":
+      - columnheader "":
+        - checkbox ""
+        - text: 
+      - columnheader "Skill"
+      - columnheader "Years of Experience"
+      - columnheader "Actions"
+  - rowgroup
+- heading "Languages" [level=6]
+- button " Add"
+- separator
+- text: No Records Found
+- table:
+  - rowgroup:
+    - row " Language Fluency Competency Comments Actions":
+      - columnheader "":
+        - checkbox ""
+        - text: 
+      - columnheader "Language"
+      - columnheader "Fluency"
+      - columnheader "Competency"
+      - columnheader "Comments"
+      - columnheader "Actions"
+  - rowgroup
+- heading "License" [level=6]
+- button " Add"
+- separator
+- text: No Records Found
+- table:
+  - rowgroup:
+    - row " License Type Issued Date Expiry Date Actions":
+      - columnheader "":
+        - checkbox ""
+        - text: 
+      - columnheader "License Type"
+      - columnheader "Issued Date"
+      - columnheader "Expiry Date"
+      - columnheader "Actions"
+  - rowgroup
+- separator
+- heading "Attachments" [level=6]
+- button " Add"
+- separator
+- text: No Records Found
+- table:
+  - rowgroup:
+    - row " File Name Description Size Type Date Added Added By Actions":
+      - columnheader "":
+        - checkbox ""
+        - text: 
+      - columnheader "File Name"
+      - columnheader "Description"
+      - columnheader "Size"
+      - columnheader "Type"
+      - columnheader "Date Added"
+      - columnheader "Added By"
+      - columnheader "Actions"
+  - rowgroup
+- paragraph: OrangeHRM OS 5.9
+- paragraph:
+  - text: © 2005 - 2026
+  - link "OrangeHRM, Inc":
+    - /url: http://www.orangehrm.com
+  - text: . All rights reserved.

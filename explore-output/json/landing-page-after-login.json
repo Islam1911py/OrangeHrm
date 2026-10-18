@@ -1,0 +1,26 @@
+{
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index",
+  "headings": [
+    "Dashboard"
+  ],
+  "tabs": [],
+  "inputs": [
+    {
+      "label": "",
+      "type": "text",
+      "name": null,
+      "placeholder": "Search",
+      "value": "",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "dropdowns": [],
+  "buttons": [],
+  "tableColumns": [],
+  "tableRows": 0,
+  "errors": [],
+  "toasts": [],
+  "dialogs": [],
+  "emptyMessage": false
+}

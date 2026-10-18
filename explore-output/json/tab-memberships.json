@@ -1,0 +1,82 @@
+{
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewMemberships/empNumber/186",
+  "headings": [
+    "PIM",
+    "Aglae Gleichnerfke",
+    "Assigned Memberships",
+    "Attachments"
+  ],
+  "tabs": [
+    "Personal Details",
+    "Contact Details",
+    "Emergency Contacts",
+    "Dependents",
+    "Immigration",
+    "Job",
+    "Salary",
+    "Report-to",
+    "Qualifications",
+    "Memberships"
+  ],
+  "inputs": [
+    {
+      "label": "",
+      "type": "text",
+      "name": null,
+      "placeholder": "Search",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "dropdowns": [],
+  "buttons": [
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    }
+  ],
+  "tableColumns": [
+    "Membership",
+    "Subscription Paid By",
+    "Subscription Amount",
+    "Currency",
+    "Subscription Commence Date",
+    "Subscription Renewal Date",
+    "Actions",
+    "File Name",
+    "Description",
+    "Size",
+    "Type",
+    "Date Added",
+    "Added By",
+    "Actions"
+  ],
+  "tableRows": 0,
+  "errors": [],
+  "toasts": [],
+  "dialogs": [],
+  "emptyMessage": true
+}

@@ -1,0 +1,632 @@
+TC ID,Section,Test Title,Test Type,Test Approach,Priority,Preconditions,Test Data,Steps,Expected Result,5.9 Check,Notes
+TC-3.0-01,3.0 Permissions & Access,My Info menu and all section tabs are displayed,UI,Positive,High,,ESS user created by HR Admin,"1. Log in as an ESS user
+2. Click My Info
+3. Look at the tabs on the left","Ten tabs are shown in this order: Personal Details, Contact Details, Emergency Contacts, Dependents, Immigration, Job, Salary, Report-to, Qualifications, Memberships",Verified,Seen in an ESS screenshot and PASSED in an automated run on the live demo.
+TC-3.0-02,3.0 Permissions & Access,Editable sections allow add/edit/delete,Functional,Positive,High,,,"1. Open Emergency Contacts, Dependents, Immigration, Qualifications and Memberships in turn
+2. Check available controls","Add, Edit (via record link) and Delete controls are available in each of these sections, per the ESS permissions",Needs check,
+TC-3.0-03,3.0 Permissions & Access,Read-only sections expose no modify controls,Functional,Negative,High,,,"1. Open Job, Report-to (and Salary if visible)
+2. Look for Save, Add, Edit and Delete buttons",No Save/Add/Edit/Delete controls are available; all fields are read-only,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.0-04,3.0 Permissions & Access,ESS user cannot open another employee's My Info via URL,Security,Negative,High,,Own empNumber +/- 1,"1. Note the URL of your own My Info page
+2. Change the employee number in the URL to another employee's
+3. Press Enter",Access is denied or redirected to own record; the other employee's data is never shown,Needs check,
+TC-3.0-05,3.0 Permissions & Access,ESS changes are visible to HR Admin in PIM,Integration,Positive,Medium,HR Admin account available,,"1. As ESS update Nick Name and add an Emergency Contact
+2. Log in as HR Admin
+3. Open the employee record in PIM",Admin sees the same updated values,Needs check,"5.x may hide Nick Name by default (Admin > PIM > Configuration > Optional Fields > deprecated fields). If hidden, mark N/A."
+TC-3.0-06,3.0 Permissions & Access,Training Details permissions,Functional,Positive,Low,,,"1. Look for a Training Details section in My Info
+2. If present, check which fields are editable","If a Training Details section exists: only Feedback is editable; ID, Description, Status and Rating are read-only. If it does not exist, mark N/A on 5.9",N/A on 5.9,No Training Details tab in the ESS My Info menu (seen on 5.9).
+TC-3.1-01,3.1 Personal Details,Personal Details is the first screen after first login,Functional,Positive,High,Fresh ESS account that has never logged in,,"1. Log in for the first time with a new ESS account
+2. Observe the landing screen",Personal Details screen (My Info) opens with the user's name and photo in the left panel,Needs check,"In 5.x login normally lands on the Dashboard, not Personal Details. Expect to rewrite this case."
+TC-3.1-02,3.1 Personal Details,All Personal Details fields and controls are displayed,UI,Positive,Medium,,,"1. Open Personal Details
+2. Check each field and button","Shown: Employee Full Name (First, Middle, Last), Employee Id, Other Id, Driver's License Number, License Expiry Date, Nationality, Marital Status, Date of Birth, Gender (Male/Female), Save button, Custom Fields (Blood Type, Test_Field) with its own Save, Attachments with Add",Needs check,"Seen only in a cropped screenshot (no header or side panel), so it may be the Admin view. The ESS screenshot does show the Custom Fields heading. Confirm with the test run or explore-output."
+TC-3.1-03,3.1 Personal Details,Required fields are marked with an asterisk,UI,Positive,Low,,,"1. Open Personal Details
+2. Look at the field labels",'Employee Full Name' is marked with * and the '* Required' note is displayed,Verified,Seen on 5.9 in an ESS screenshot.
+TC-3.1-04,3.1 Personal Details,Edit and save Full Name,Functional,Positive,High,,James / Robert / Olsen,"1. Change First Name, add Middle Name, change Last Name
+2. Click Save (there is no Edit button)
+3. Refresh the page",Success message shown; new name is saved and persists after refresh; the name in the left panel is updated,Needs check,5.x forms are probably editable directly with a Save button (no separate Edit button). Confirm.
+TC-3.1-05,3.1 Personal Details,Save with empty First Name,Functional,Negative,High,,,"1. Clear First Name
+2. Click Save",'Required' error under First Name; nothing is saved,Needs check,
+TC-3.1-06,3.1 Personal Details,Save with empty Last Name,Functional,Negative,High,,,"1. Clear Last Name
+2. Click Save",'Required' error under Last Name; nothing is saved,Needs check,
+TC-3.1-07,3.1 Personal Details,Whitespace-only First Name,Functional,Negative,Medium,,'   ',"1. Replace First Name with spaces only
+2. Click Save",Rejected with a 'Required' error,Needs check,
+TC-3.1-08,3.1 Personal Details,Name length boundary,Functional,Boundary,Medium,,Check the field limit in the app (OrangeHRM default is 30),"1. Enter a name exactly at the maximum length and Save
+2. Enter one character more and Save",Maximum-length name is accepted; one character more is rejected with a 'Should not exceed N characters' message,Needs check,
+TC-3.1-09,3.1 Personal Details,Names with special characters,Functional,Positive,Low,,O'Connor / Nancy-Ming,"1. Enter a name containing an apostrophe and a hyphen
+2. Click Save",Name is saved and displayed correctly,Needs check,
+TC-3.1-10,3.1 Personal Details,Edit Other Id,Functional,Positive,Medium,,OTH-1001,"1. Enter a value in Other Id
+2. Click Save",Value is saved and persists after refresh,Needs check,
+TC-3.1-11,3.1 Personal Details,Edit License Expiry Date by typing,Functional,Positive,Medium,,Generated valid date in yyyy-dd-mm,"1. Type a valid date in License Expiry Date
+2. Click Save",Date is saved in yyyy-dd-mm format,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.1-12,3.1 Personal Details,Edit License Expiry Date with the calendar picker,Functional,Positive,Low,,,"1. Click the calendar icon
+2. Pick a date
+3. Click Save",Selected date fills the field and is saved,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.1-13,3.1 Personal Details,Invalid License Expiry Date format,Functional,Negative,Medium,,"Generated: dd/mm/yyyy with slashes, yyyy-dd-mm order with day > 12, month 13, day 32, 30 February, letters","1. Type an invalid date in License Expiry Date
+2. Click Save",Validation error 'Should be a valid date in yyyy-dd-mm format'; not saved,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.1-14,3.1 Personal Details,Change Gender,Functional,Positive,Medium,,,"1. Switch Gender from Male to Female
+2. Click Save",New gender is saved and persists,Needs check,
+TC-3.1-15,3.1 Personal Details,Change Nationality,Functional,Positive,Medium,,American -> Egyptian,"1. Select another country in Nationality
+2. Click Save",Selection is saved and persists,Needs check,
+TC-3.1-16,3.1 Personal Details,Change Marital Status,Functional,Positive,Medium,,Single -> Married,"1. Select another option in Marital Status
+2. Click Save",Selection is saved and persists,Needs check,
+TC-3.1-17,3.1 Personal Details,Edit Nick Name,Functional,Positive,Low,,Jimmy -> Jim,"1. Change Nick Name
+2. Click Save",Nick name is saved and persists,N/A on 5.9,Field is not shown to the ESS user on 5.9 (seen in an ESS screenshot); it would appear only if Admin enables optional/deprecated fields.
+TC-3.1-18,3.1 Personal Details,Edit Military Service,Functional,Positive,Low,,Army 2005-2008,"1. Enter text in Military Service
+2. Click Save",Value is saved and persists,N/A on 5.9,Field is not shown to the ESS user on 5.9 (seen in an ESS screenshot); it would appear only if Admin enables optional/deprecated fields.
+TC-3.1-19,3.1 Personal Details,Smoker checkbox can be ticked and cleared,Functional,Positive,Low,,,"1. Tick Smoker and Save
+2. Reopen the page
+3. Untick Smoker and Save",State follows the selection after each save,N/A on 5.9,Field is not shown to the ESS user on 5.9 (seen in an ESS screenshot); it would appear only if Admin enables optional/deprecated fields.
+TC-3.1-20,3.1 Personal Details,Update several fields in one save,Functional,Positive,Medium,,"Generated Other Id, Nationality, Marital Status and Gender","1. Change Other Id, Nationality, Marital Status and Gender together
+2. Click Save",All changes are saved together and persist after logout and login,Needs check,
+TC-3.1-21,3.1 Personal Details,Employee Id is read-only,Functional,Negative,High,,,1. Try to click or type in Employee Id,Field is greyed out and cannot be edited,Verified,Greyed out in the ESS screenshot; confirm the disabled attribute when automating.
+TC-3.1-22,3.1 Personal Details,Driver's License Number is read-only,Functional,Negative,High,,,1. Try to click or type in Driver's License Number,Field is greyed out and cannot be edited,Verified,Greyed out in the ESS screenshot; confirm the disabled attribute when automating.
+TC-3.1-23,3.1 Personal Details,Date of Birth is read-only,Functional,Negative,High,,,"1. Try to type in Date of Birth
+2. Click its calendar icon",Field and calendar icon are disabled; value cannot be changed,Verified,Greyed out in the ESS screenshot; confirm the disabled attribute when automating.
+TC-3.1-24,3.1 Personal Details,SSN and SIN numbers are read-only (if shown),Functional,Negative,Medium,,,"1. Look for SSN Number and SIN Number
+2. Try to edit them",Fields are read-only (or not displayed when the optional fields are disabled),N/A on 5.9,Field is not shown to the ESS user on 5.9 (seen in an ESS screenshot); it would appear only if Admin enables optional/deprecated fields.
+TC-3.1-25,3.1 Personal Details,Read-only fields cannot be changed by tampering with the request,Security,Negative,High,,,"1. Open browser dev tools and enable the Employee Id / Date of Birth field
+2. Change the value
+3. Click Save
+4. Reload",Server ignores or rejects the change; original values are unchanged,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.1-26,3.1 Personal Details,Leave the page without saving,Functional,Positive,Low,,,"1. Change Nick Name without saving
+2. Open another tab in My Info
+3. Come back to Personal Details",Unsaved change is not stored; the old value is shown,Needs check,"5.x may hide Nick Name by default (Admin > PIM > Configuration > Optional Fields > deprecated fields). If hidden, mark N/A."
+TC-3.1-27,3.1 Personal Details,Personal Details attachments: add and delete,Functional,Positive,Low,,Small PDF (under 1MB),"1. Under Attachments click Add
+2. Browse a small file and click Save
+3. Tick it and click Delete","File is uploaded, listed, then removed",Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.2-01,3.2 Photograph,Open the Photograph page from the profile picture,Functional,Positive,High,,,1. Click the photograph at the corner of the screen,"Photograph page opens with Choose File, Upload and Delete buttons and the current photo",Needs check,5.x: click the avatar > change profile picture page. Button names (Upload/Save) may differ. The 1MB/jpg/png/gif/200x200 hint IS shown on Add Employee (verified).
+TC-3.2-02,3.2 Photograph,Hint text is displayed,UI,Positive,Low,,,"1. Open the Photograph page
+2. Read the hint under the file field","Hint shows accepted formats (jpg, png, gif), the 1MB limit and recommended size 200px X 200px",Needs check,5.x: click the avatar > change profile picture page. Button names (Upload/Save) may differ. The 1MB/jpg/png/gif/200x200 hint IS shown on Add Employee (verified). The hint text is verified on Add Employee; check the profile picture page too.
+TC-3.2-03,3.2 Photograph,Upload a valid JPG,Functional,Positive,High,,"Image.jpg, 200x200, about 50 KB","1. Click Choose File
+2. Select a JPG of 1MB or less
+3. Click Upload",Success message; new photo is shown in the profile panel,Needs check,Check the exact button names and the file-type/size rules on 5.9.
+TC-3.2-04,3.2 Photograph,Upload a valid PNG,Functional,Positive,High,,"photo.png, 200x200","1. Select a PNG of 1MB or less
+2. Click Upload",Photo is uploaded and displayed,Needs check,Check the exact button names and the file-type/size rules on 5.9.
+TC-3.2-05,3.2 Photograph,Upload a valid GIF,Functional,Positive,Medium,,"photo.gif, 200x200","1. Select a GIF of 1MB or less
+2. Click Upload",Photo is uploaded and displayed,Needs check,Check the exact button names and the file-type/size rules on 5.9.
+TC-3.2-06,3.2 Photograph,Upload a file of exactly 1MB,Functional,Boundary,Medium,,"Image of 1,048,576 bytes","1. Select an image of exactly 1MB (1,048,576 bytes)
+2. Click Upload",File is accepted (limit is 'up to 1MB'),Needs check,Check the exact button names and the file-type/size rules on 5.9.
+TC-3.2-07,3.2 Photograph,Upload a file larger than 1MB,Functional,Negative,High,,Image of about 2 MB,"1. Select an image bigger than 1MB
+2. Click Upload",Upload is rejected with a file-size error; old photo stays,Needs check,Check the exact button names and the file-type/size rules on 5.9.
+TC-3.2-08,3.2 Photograph,Upload an unsupported file type,Functional,Negative,High,,"document.pdf, image.bmp, setup.exe","1. Select a file of another type
+2. Click Upload",Rejected with an invalid-type message; old photo stays,Needs check,Check the exact button names and the file-type/size rules on 5.9.
+TC-3.2-09,3.2 Photograph,Executable renamed to .jpg is rejected,Security,Negative,High,,fake.jpg (actually .exe),"1. Rename an .exe to .jpg
+2. Select it and click Upload","Upload is rejected (file content is validated, not only the extension)",Needs check,Check the exact button names and the file-type/size rules on 5.9.
+TC-3.2-10,3.2 Photograph,Click Upload without choosing a file,Functional,Negative,Medium,,,"1. Open Photograph page
+2. Click Upload with no file selected",Validation message asks for a file; nothing changes,Needs check,5.x: click the avatar > change profile picture page. Button names (Upload/Save) may differ. The 1MB/jpg/png/gif/200x200 hint IS shown on Add Employee (verified). Check the exact button names and the file-type/size rules on 5.9.
+TC-3.2-11,3.2 Photograph,Image with non-recommended dimensions,Functional,Boundary,Low,,1000x1000 px; 30x30 px,1. Upload a very large image (1000x1000 under 1MB) and a very small one (30x30),Both are accepted (if under 1MB) and displayed scaled without breaking the layout,Needs check,Check the exact button names and the file-type/size rules on 5.9.
+TC-3.2-12,3.2 Photograph,Replace an existing photo,Functional,Positive,Medium,A photo is already uploaded,,"1. Upload photo A
+2. Upload photo B",Photo B replaces photo A everywhere,Needs check,Check the exact button names and the file-type/size rules on 5.9.
+TC-3.2-13,3.2 Photograph,Delete the photo,Functional,Positive,Medium,A photo is already uploaded,,"1. Click Delete on the Photograph page
+2. Confirm if prompted",Photo is removed and the default placeholder avatar is shown,Needs check,"5.x: click the avatar > change profile picture page. Button names (Upload/Save) may differ. The 1MB/jpg/png/gif/200x200 hint IS shown on Add Employee (verified). 5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.2-14,3.2 Photograph,Photo persists and appears in the Corporate Directory,Integration,Positive,Low,,,"1. Upload a photo
+2. Log out and log in
+3. Open the Directory and search for yourself",Photo is still shown in My Info and in the Directory listing,Needs check,Check the exact button names and the file-type/size rules on 5.9.
+TC-3.4-01,3.4 Emergency Contacts,Emergency Contacts list is displayed,UI,Positive,Medium,,,1. Open Emergency Contacts,"'Assigned Emergency Contacts' list shows Name, Relationship, Home Telephone, Mobile, Work Telephone, with Add and Delete buttons",Needs check,
+TC-3.4-02,3.4 Emergency Contacts,Add a contact with all fields,Functional,Positive,High,,Nicole Olsen / Sister / +16532546321 / +201001234567 / +20 3 5551234,"1. Click Add
+2. Fill all fields
+3. Click Save",Success message; contact appears in the list with all values,Needs check,
+TC-3.4-03,3.4 Emergency Contacts,Add a contact with required fields only,Functional,Positive,High,,Michael Olsen / Father,"1. Click Add
+2. Enter Name and Relationship only
+3. Click Save","Contact is saved if only Name and Relationship are required on 5.9. If a phone number is also required, update this case",Needs check,
+TC-3.4-04,3.4 Emergency Contacts,Add a contact without Name,Functional,Negative,High,,,"1. Click Add
+2. Leave Name empty, fill Relationship
+3. Click Save",'Required' error under Name; not saved,Needs check,
+TC-3.4-05,3.4 Emergency Contacts,Add a contact without Relationship,Functional,Negative,High,,,"1. Click Add
+2. Fill Name, leave Relationship empty
+3. Click Save",'Required' error under Relationship; not saved,Needs check,
+TC-3.4-06,3.4 Emergency Contacts,Valid phone number formats are accepted,Functional,Positive,Medium,,+16532546321 ; +1 245 691 4531 ; 012-3456789,"1. Add contacts using different valid phone formats
+2. Click Save each time",All valid formats are accepted and shown as entered,Needs check,
+TC-3.4-07,3.4 Emergency Contacts,Phone number with letters,Functional,Negative,Medium,,abc123xyz,"1. Enter letters in Home Telephone
+2. Click Save",Validation error for an allowed phone format; not saved,Needs check,
+TC-3.4-08,3.4 Emergency Contacts,Phone number length boundary,Functional,Boundary,Low,,Check the field limit in the app,"1. Enter a phone number at the max length and Save
+2. Enter one more character and Save",Max length is accepted; longer value is rejected with a length error,Needs check,
+TC-3.4-09,3.4 Emergency Contacts,Name with special characters,Functional,Positive,Low,,Mary O'Connor-Smith,"1. Add a contact whose name has an apostrophe/hyphen
+2. Click Save",Saved and displayed correctly,Needs check,
+TC-3.4-10,3.4 Emergency Contacts,Edit an existing emergency contact,Functional,Positive,Medium,At least one emergency contact record exists,,"1. Click the emergency contact link in the Assigned Emergency Contacts list
+2. Change Relationship from 'Sister' to 'Brother'
+3. Click Save",Success message shown; list shows the updated value; change persists after page refresh and re-login,Needs check,
+TC-3.4-11,3.4 Emergency Contacts,Cancel while adding an emergency contact,Functional,Positive,Low,,,"1. Click Add
+2. Fill in some fields
+3. Click Cancel","Form closes, no record is created, list is unchanged",Needs check,
+TC-3.4-12,3.4 Emergency Contacts,Add multiple emergency contact records,Functional,Positive,Medium,,,"1. Add a first record and Save
+2. Add a second record with different values and Save",Both records are listed; the second does not overwrite the first,Needs check,
+TC-3.4-13,3.4 Emergency Contacts,Delete a single emergency contact,Functional,Positive,High,At least two emergency contact records exist,,"1. Tick the checkbox next to one record
+2. Click Delete
+3. Confirm if prompted",Only the selected record is removed; other records remain; success message shown,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.4-14,3.4 Emergency Contacts,Delete multiple emergency contact records at once,Functional,Positive,Medium,At least three emergency contact records exist,,"1. Tick the checkbox of two or more records
+2. Click Delete
+3. Confirm if prompted",All selected records are removed; unselected records remain,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.4-15,3.4 Emergency Contacts,Click Delete with no record selected,Functional,Negative,Low,,,"1. Make sure no checkbox is ticked
+2. Click Delete",Nothing is deleted; Delete is disabled or a 'select a record' message appears,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.4-16,3.4 Emergency Contacts,"Header checkbox selects all records, then Delete",Functional,Positive,Low,,,"1. Tick the header checkbox in the list
+2. Verify all rows are ticked
+3. Click Delete and confirm",All records are removed; list shows 'No Records Found',Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.4-17,3.4 Emergency Contacts,Add a valid attachment (emergency contact),Functional,Positive,Medium,,"Certs.docx (about 10 KB), comment 'Certificates'","1. Under Attachments click Add
+2. Click Browse and choose a file of 1MB or less
+3. Enter an optional comment
+4. Click Save","File is listed with name, description, size, type, date added and added-by; success message shown",Needs check,
+TC-3.4-18,3.4 Emergency Contacts,Add an attachment larger than 1MB (emergency contact),Functional,Negative,Medium,,PDF of about 1.5 MB,"1. Under Attachments click Add
+2. Click Browse and choose a file bigger than 1MB
+3. Click Save",The file is rejected with a file-size error; nothing is added to the list,Needs check,
+TC-3.4-19,3.4 Emergency Contacts,Delete an attachment (emergency contact),Functional,Positive,Low,An attachment already exists,,"1. Tick the checkbox of an uploaded attachment
+2. Click Delete (attachments section)
+3. Confirm if prompted",Attachment is removed from the list,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.5-01,3.5 Dependents,Assigned Dependents list is displayed,UI,Positive,Medium,,,1. Open Dependents,"'Assigned Dependents' list shows Name, Relationship, Date of Birth, with Add and Delete buttons",Needs check,
+TC-3.5-02,3.5 Dependents,Add a dependent (Child) with all fields,Functional,Positive,High,,Sara Olsen / Child / 2015-12-06,"1. Click Add
+2. Enter Name, select Child, enter Date of Birth
+3. Click Save",Dependent is listed with relationship Child and the entered date of birth,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.5-03,3.5 Dependents,Relationship dropdown options,UI,Positive,Low,,,"1. Click Add
+2. Open the Relationship dropdown","Options are available (e.g. Child, Other)",Needs check,
+TC-3.5-04,3.5 Dependents,Selecting 'Other' shows a required 'Please Specify' field,Functional,Positive,High,,,"1. Click Add
+2. Select Relationship 'Other'",'Please Specify *' field appears and is required,Needs check,
+TC-3.5-05,3.5 Dependents,Add a dependent with relationship 'Other' and a specification,Functional,Positive,High,,Mary O'Connor / Other / Wife / 1988-02-04,"1. Select Other
+2. Enter Please Specify = Wife
+3. Fill Name and Date of Birth
+4. Click Save",Dependent is listed with relationship 'Wife',Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.5-06,3.5 Dependents,'Other' without 'Please Specify',Functional,Negative,High,,,"1. Select Other
+2. Leave Please Specify empty
+3. Click Save",'Required' error under Please Specify; not saved,Needs check,
+TC-3.5-07,3.5 Dependents,Add a dependent without Name,Functional,Negative,High,,,"1. Leave Name empty
+2. Click Save",'Required' error under Name; not saved,Needs check,
+TC-3.5-08,3.5 Dependents,Date of Birth is optional,Functional,Positive,Medium,,Omar Olsen / Child,"1. Enter Name and Relationship only
+2. Click Save",Dependent is saved with an empty date of birth,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.5-09,3.5 Dependents,Invalid Date of Birth format,Functional,Negative,Medium,,12/06/2015 ; 2015-30-02,"1. Type an invalid date
+2. Click Save",Validation error for date format; not saved,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.5-10,3.5 Dependents,Date of Birth in the future,Functional,Negative,Low,,2999-01-01,"1. Enter a date in the future
+2. Click Save","Should be rejected as illogical. If it is accepted, log it as an improvement",Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.5-11,3.5 Dependents,Date of Birth via the calendar picker,Functional,Positive,Low,,,"1. Click the calendar icon
+2. Select a date
+3. Click Save",Selected date is stored correctly,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.5-12,3.5 Dependents,Edit an existing dependent,Functional,Positive,Medium,At least one dependent record exists,,"1. Click the dependent link in the Assigned Dependents list
+2. Change Name from 'Sara Olsen' to 'Sarah Olsen'
+3. Click Save",Success message shown; list shows the updated value; change persists after page refresh and re-login,Needs check,
+TC-3.5-13,3.5 Dependents,Cancel while adding a dependent,Functional,Positive,Low,,,"1. Click Add
+2. Fill in some fields
+3. Click Cancel","Form closes, no record is created, list is unchanged",Needs check,
+TC-3.5-14,3.5 Dependents,Add multiple dependent records,Functional,Positive,Medium,,,"1. Add a first record and Save
+2. Add a second record with different values and Save",Both records are listed; the second does not overwrite the first,Needs check,
+TC-3.5-15,3.5 Dependents,Delete a single dependent,Functional,Positive,High,At least two dependent records exist,,"1. Tick the checkbox next to one record
+2. Click Delete
+3. Confirm if prompted",Only the selected record is removed; other records remain; success message shown,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.5-16,3.5 Dependents,Delete multiple dependent records at once,Functional,Positive,Medium,At least three dependent records exist,,"1. Tick the checkbox of two or more records
+2. Click Delete
+3. Confirm if prompted",All selected records are removed; unselected records remain,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.5-17,3.5 Dependents,Click Delete with no record selected,Functional,Negative,Low,,,"1. Make sure no checkbox is ticked
+2. Click Delete",Nothing is deleted; Delete is disabled or a 'select a record' message appears,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.5-18,3.5 Dependents,"Header checkbox selects all records, then Delete",Functional,Positive,Low,,,"1. Tick the header checkbox in the list
+2. Verify all rows are ticked
+3. Click Delete and confirm",All records are removed; list shows 'No Records Found',Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.5-19,3.5 Dependents,Add a valid attachment (dependent),Functional,Positive,Medium,,"Certs.docx (about 10 KB), comment 'Certificates'","1. Under Attachments click Add
+2. Click Browse and choose a file of 1MB or less
+3. Enter an optional comment
+4. Click Save","File is listed with name, description, size, type, date added and added-by; success message shown",Needs check,
+TC-3.5-20,3.5 Dependents,Add an attachment larger than 1MB (dependent),Functional,Negative,Medium,,PDF of about 1.5 MB,"1. Under Attachments click Add
+2. Click Browse and choose a file bigger than 1MB
+3. Click Save",The file is rejected with a file-size error; nothing is added to the list,Needs check,
+TC-3.5-21,3.5 Dependents,Delete an attachment (dependent),Functional,Positive,Low,An attachment already exists,,"1. Tick the checkbox of an uploaded attachment
+2. Click Delete (attachments section)
+3. Confirm if prompted",Attachment is removed from the list,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.6-01,3.6 Immigration,Assigned Immigration Records list is displayed,UI,Positive,Medium,,,1. Open Immigration,"List shows Document, Number, Issued By, Issued Date, Expiry Date, with Add and Delete buttons",Needs check,
+TC-3.6-02,3.6 Immigration,Add a Passport with all fields,Functional,Positive,High,,Passport / A5745675673 / 1997-01-04 / 2020-01-04 / Eligible / United States / 2019-01-01 / comment,"1. Click Add
+2. Select Passport
+3. Fill all fields
+4. Click Save",Record is listed with all values,Needs check,
+TC-3.6-03,3.6 Immigration,Add a Visa,Functional,Positive,High,,Visa / V-998877 / 2023-01-01 / 2026-01-01,"1. Select Visa
+2. Enter number and dates
+3. Click Save",Visa record is listed as 'Visa',Needs check,
+TC-3.6-04,3.6 Immigration,Document type defaults to Passport,UI,Positive,Low,,,1. Click Add,Passport radio is selected by default; both Passport and Visa are selectable,Needs check,
+TC-3.6-05,3.6 Immigration,Add with required fields only,Functional,Positive,Medium,,Passport / P1234567,"1. Select a document type
+2. Enter Number only
+3. Click Save",Record is saved; optional fields stay empty,Needs check,
+TC-3.6-06,3.6 Immigration,Add without Number,Functional,Negative,High,,,"1. Select a document type
+2. Leave Number empty
+3. Click Save",'Required' error under Number; not saved,Needs check,
+TC-3.6-07,3.6 Immigration,Expiry Date before Issued Date,Functional,Negative,High,,Issued 2020-01-01 / Expiry 2019-01-01,"1. Enter Issued Date later than Expiry Date
+2. Click Save",Validation error such as 'To date should be after from date'; not saved,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.6-08,3.6 Immigration,Invalid date formats,Functional,Negative,Medium,,01-04-1997 ; 2020-99-99,"1. Enter invalid values in Issued Date, Expiry Date and Eligible Review Date
+2. Click Save",Date-format error on each field; not saved,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.6-09,3.6 Immigration,Issued By country dropdown,Functional,Positive,Low,,Egypt,"1. Choose a country in Issued By
+2. Click Save",Selected country is shown in the list,Needs check,
+TC-3.6-10,3.6 Immigration,Eligible Status and Eligible Review Date,Functional,Positive,Low,,Eligible / 2019-01-06,"1. Fill Eligible Status and Eligible Review Date
+2. Click Save
+3. Open the record",Both values are saved and shown when editing,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.6-11,3.6 Immigration,Comments length boundary,Functional,Boundary,Low,,Check the limit in the app (OrangeHRM default is 250),"1. Enter comments at the max length and Save
+2. Enter more than the max and Save",Max length is accepted; longer text is rejected with a length error,Needs check,
+TC-3.6-12,3.6 Immigration,Alphanumeric document numbers,Functional,Positive,Low,,A5745675673 ; AB-12345,"1. Enter a number with letters, digits and a hyphen
+2. Click Save",Number is saved exactly as typed,Needs check,
+TC-3.6-13,3.6 Immigration,Edit an existing immigration record,Functional,Positive,Medium,At least one immigration record record exists,,"1. Click the immigration record link in the Assigned Immigration Records list
+2. Change Number from 'A5745675673' to 'A5745675999'
+3. Click Save",Success message shown; list shows the updated value; change persists after page refresh and re-login,Needs check,
+TC-3.6-14,3.6 Immigration,Cancel while adding an immigration record,Functional,Positive,Low,,,"1. Click Add
+2. Fill in some fields
+3. Click Cancel","Form closes, no record is created, list is unchanged",Needs check,
+TC-3.6-15,3.6 Immigration,Add multiple immigration records,Functional,Positive,Medium,,,"1. Add a first record and Save
+2. Add a second record with different values and Save",Both records are listed; the second does not overwrite the first,Needs check,
+TC-3.6-16,3.6 Immigration,Delete a single immigration record,Functional,Positive,High,At least two immigration record records exist,,"1. Tick the checkbox next to one record
+2. Click Delete
+3. Confirm if prompted",Only the selected record is removed; other records remain; success message shown,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.6-17,3.6 Immigration,Delete multiple immigration records at once,Functional,Positive,Medium,At least three immigration record records exist,,"1. Tick the checkbox of two or more records
+2. Click Delete
+3. Confirm if prompted",All selected records are removed; unselected records remain,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.6-18,3.6 Immigration,Click Delete with no record selected,Functional,Negative,Low,,,"1. Make sure no checkbox is ticked
+2. Click Delete",Nothing is deleted; Delete is disabled or a 'select a record' message appears,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.6-19,3.6 Immigration,"Header checkbox selects all records, then Delete",Functional,Positive,Low,,,"1. Tick the header checkbox in the list
+2. Verify all rows are ticked
+3. Click Delete and confirm",All records are removed; list shows 'No Records Found',Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.6-20,3.6 Immigration,Add a valid attachment (immigration record),Functional,Positive,Medium,,"Certs.docx (about 10 KB), comment 'Certificates'","1. Under Attachments click Add
+2. Click Browse and choose a file of 1MB or less
+3. Enter an optional comment
+4. Click Save","File is listed with name, description, size, type, date added and added-by; success message shown",Needs check,
+TC-3.6-21,3.6 Immigration,Add an attachment larger than 1MB (immigration record),Functional,Negative,Medium,,PDF of about 1.5 MB,"1. Under Attachments click Add
+2. Click Browse and choose a file bigger than 1MB
+3. Click Save",The file is rejected with a file-size error; nothing is added to the list,Needs check,
+TC-3.6-22,3.6 Immigration,Delete an attachment (immigration record),Functional,Positive,Low,An attachment already exists,,"1. Tick the checkbox of an uploaded attachment
+2. Click Delete (attachments section)
+3. Confirm if prompted",Attachment is removed from the list,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.7-01,3.7 Job,Job details are displayed,Functional,Positive,High,HR Admin has filled in the job details,Values set earlier by HR Admin,1. Open Job,"Shown: Job Title, Job Specification, Employment Status, Job Category, Joined Date, Sub Unit, Location, Employment Contract (Start Date, End Date, Contract Details), Attachments",Needs check,
+TC-3.7-02,3.7 Job,Values match what HR Admin defined,Integration,Positive,High,,,1. Compare the Job page with the employee's Job tab in PIM (admin),Every value is identical to the admin record,Needs check,
+TC-3.7-03,3.7 Job,All job fields are read-only,Functional,Negative,High,,,"1. Try to change each field: Job Title, Employment Status, Job Category, Joined Date, Sub Unit, Location, contract dates",All fields are greyed out; dropdowns and calendar icons are disabled,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.7-04,3.7 Job,No Save or Edit button,Functional,Negative,High,,,1. Look at the bottom of the Job form,No Edit or Save button is present,Needs check,
+TC-3.7-05,3.7 Job,Job Attachments are view-only,Functional,Negative,Medium,,,1. Look at the Attachments section,No Add or Delete controls are available to the ESS user,Needs check,
+TC-3.7-06,3.7 Job,Empty values show 'Not Defined',UI,Positive,Low,Employee with empty job specification,,1. Open Job for an employee without a specification or contract details,Job Specification and Contract Details show 'Not Defined',Needs check,
+TC-3.7-07,3.7 Job,Job changes cannot be forced through the request,Security,Negative,High,,,"1. Enable a disabled field with dev tools
+2. Change the value and try to submit",Request is rejected or ignored; values are unchanged,Needs check,
+TC-3.7-08,3.7 Job,Job details update after HR Admin change,Integration,Positive,Medium,HR Admin account available,,"1. HR Admin changes the Job Title
+2. ESS user refreshes the Job page",New job title is shown,Needs check,
+TC-3.7-09,3.7 Job,Another employee's job data is not accessible,Security,Negative,High,,,1. Change the employee number in the Job page URL,Access denied or own record shown; no other employee's data,Needs check,
+TC-3.8-01,3.8 Salary,Salary tab content is view-only for the ESS user,Functional,Negative,High,,,"1. Open the Salary tab
+2. Look for Add, Edit, Delete and Save controls and try to change any value",The Salary tab is visible to the ESS user (seen on 5.9). Its content must be view-only: no Add/Edit/Delete. Record what is shown,Needs check,The Salary tab IS visible to the ESS user (seen on 5.9). Its content has not been seen yet.
+TC-3.8-02,3.8 Salary,No edit controls for salary fields,Functional,Negative,High,,,"1. If the Salary page is reachable, look for Add, Edit, Delete and Save
+2. Try to change Component, Pay Frequency, Currency, Amount, Comments",No salary field can be edited or added; no controls are shown,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.8-03,3.8 Salary,Direct Deposit Details cannot be viewed or changed,Functional,Negative,High,,,1. Try to open Direct Deposit Details (checkbox 'Show Direct Deposit Details'),Details are not available or are read-only; account numbers are not exposed,Needs check,
+TC-3.8-04,3.8 Salary,Salary attachments are not accessible,Functional,Negative,Medium,,,1. Open the Salary Attachments section if present,"No Add, Delete or download options for the ESS user",Needs check,
+TC-3.8-05,3.8 Salary,Direct URL to the own salary page,Security,Negative,High,,,1. Paste the salary page URL (own empNumber) into the browser,Access is denied or the page is read-only; no edits possible,Needs check,
+TC-3.8-06,3.8 Salary,Direct URL to another employee's salary,Security,Negative,High,,,1. Paste the salary page URL with another empNumber,Access denied; no salary data of others shown,Needs check,
+TC-3.8-07,3.8 Salary,Salary create/update request sent as ESS,Security,Negative,High,,,1. Send an add or update salary request (e.g. via dev tools or API client) with the ESS session,Request is refused (403 or similar); no salary record is created or changed,Needs check,
+TC-3.9-01,3.9 Report To,Assigned Supervisors list is displayed,Functional,Positive,High,Employee has a supervisor assigned by HR Admin,,1. Open Report-to,'Assigned Supervisors' shows Name and Reporting Method (e.g. Kevin Ryan / Direct),Needs check,
+TC-3.9-02,3.9 Report To,Subordinates section shows 'No Records Found' for a non-supervisor,Functional,Positive,Medium,,,"1. Log in as an employee with no subordinates
+2. Open Report-to",'Assigned Subordinates' shows 'No Records Found',Needs check,
+TC-3.9-03,3.9 Report To,Supervisor sees the list of subordinates,Functional,Positive,High,User has subordinates assigned,,"1. Log in as an ESS user who is also a supervisor
+2. Open Report-to",Assigned Subordinates lists all direct reports with Name and Reporting Method,Needs check,
+TC-3.9-04,3.9 Report To,Employee without a supervisor,Functional,Positive,Low,Employee with no supervisor,,1. Open Report-to for an employee with no supervisor,'No Records Found' is shown under Assigned Supervisors,Needs check,
+TC-3.9-05,3.9 Report To,Several supervisors with different reporting methods,Functional,Positive,Medium,Employee with two or more supervisors,,1. Open Report-to for an employee with direct and indirect supervisors,All supervisors are listed with the right reporting method,Needs check,
+TC-3.9-06,3.9 Report To,"No Add, Edit or Delete controls",Functional,Negative,High,,,1. Look for Add/Delete buttons and links on supervisors and subordinates,No modify controls exist; names are not editable,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.9-07,3.9 Report To,Report-to attachments are view-only,Functional,Negative,Medium,,,1. Look at the Attachments section,No Add or Delete controls for the ESS user,Needs check,
+TC-3.9-08,3.9 Report To,Report-to changes cannot be forced through the request,Security,Negative,High,,,1. Send an add or delete supervisor request with the ESS session,Request is refused; hierarchy is unchanged,Needs check,
+TC-3.9-09,3.9 Report To,List updates after HR Admin changes the hierarchy,Integration,Positive,Medium,HR Admin account available,,"1. HR Admin assigns a new supervisor
+2. ESS user refreshes Report-to",New supervisor appears,Needs check,
+TC-3.10.1-01,3.10.1 Qualifications - Work Experience,Qualifications page shows all sub-sections,UI,Positive,Medium,,,1. Open Qualifications,"Sections shown: Work Experience, Education, Skills, Languages, License, Attachments, each with Add/Delete",Needs check,
+TC-3.10.1-02,3.10.1 Qualifications - Work Experience,Add work experience with all fields,Functional,Positive,High,,Citibank / IT Manager / 2002-04-04 / 2010-16-04 / comment,"1. Click Add under Work Experience
+2. Fill all fields
+3. Click Save","Entry is listed with Company, Job Title, From, To, Comment",Needs check,
+TC-3.10.1-03,3.10.1 Qualifications - Work Experience,Add with required fields only,Functional,Positive,High,,Citibank / IT Manager,"1. Enter Company and Job Title only
+2. Click Save",Entry is saved without dates and comment,Needs check,
+TC-3.10.1-04,3.10.1 Qualifications - Work Experience,Add without Company,Functional,Negative,High,,,"1. Leave Company empty
+2. Click Save",'Required' error under Company; not saved,Needs check,
+TC-3.10.1-05,3.10.1 Qualifications - Work Experience,Add without Job Title,Functional,Negative,High,,,"1. Leave Job Title empty
+2. Click Save",'Required' error under Job Title; not saved,Needs check,
+TC-3.10.1-06,3.10.1 Qualifications - Work Experience,From date later than To date,Functional,Negative,High,,,"1. Enter From = 2010-16-04 and To = 2002-04-04
+2. Click Save",Validation error; not saved,Needs check,
+TC-3.10.1-07,3.10.1 Qualifications - Work Experience,Invalid date format,Functional,Negative,Medium,,04-04-2002 ; 2002-40-14,"1. Enter invalid dates in From and To
+2. Click Save",Date-format errors; not saved,Needs check,
+TC-3.10.1-08,3.10.1 Qualifications - Work Experience,"Field length boundary (Company, Job Title)",Functional,Boundary,Low,,Check the limit in the app (OrangeHRM default is 100),"1. Enter max-length text and Save
+2. Enter one more character and Save",Max length is accepted; longer text is rejected,Needs check,
+TC-3.10.1-09,3.10.1 Qualifications - Work Experience,Edit an existing work experience entry,Functional,Positive,Medium,At least one work experience entry record exists,,"1. Click the work experience entry link in the Work Experience list
+2. Change Job Title from 'IT Manager' to 'IT Director'
+3. Click Save",Success message shown; list shows the updated value; change persists after page refresh and re-login,Needs check,
+TC-3.10.1-10,3.10.1 Qualifications - Work Experience,Cancel while adding a work experience entry,Functional,Positive,Low,,,"1. Click Add
+2. Fill in some fields
+3. Click Cancel","Form closes, no record is created, list is unchanged",Needs check,
+TC-3.10.1-11,3.10.1 Qualifications - Work Experience,Add multiple work experience entries,Functional,Positive,Medium,,,"1. Add a first record and Save
+2. Add a second record with different values and Save",Both records are listed; the second does not overwrite the first,Needs check,
+TC-3.10.1-12,3.10.1 Qualifications - Work Experience,Delete a single work experience entry,Functional,Positive,High,At least two work experience entry records exist,,"1. Tick the checkbox next to one record
+2. Click Delete
+3. Confirm if prompted",Only the selected record is removed; other records remain; success message shown,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.1-13,3.10.1 Qualifications - Work Experience,Delete multiple work experience entries at once,Functional,Positive,Medium,At least three work experience entry records exist,,"1. Tick the checkbox of two or more records
+2. Click Delete
+3. Confirm if prompted",All selected records are removed; unselected records remain,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.1-14,3.10.1 Qualifications - Work Experience,Click Delete with no record selected,Functional,Negative,Low,,,"1. Make sure no checkbox is ticked
+2. Click Delete",Nothing is deleted; Delete is disabled or a 'select a record' message appears,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.1-15,3.10.1 Qualifications - Work Experience,"Header checkbox selects all records, then Delete",Functional,Positive,Low,,,"1. Tick the header checkbox in the list
+2. Verify all rows are ticked
+3. Click Delete and confirm",All records are removed; list shows 'No Records Found',Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.2-01,3.10.2 Qualifications - Education,Add education with all fields,Functional,Positive,High,,Bachelor's Degree / Michigan Institute of Technology / IT Forensics / 2002 / 3.5 / 1998-01-04 / 2002-27-04,"1. Click Add under Education
+2. Fill all fields
+3. Click Save","Entry is listed with Level, Year and GPA/Score",Needs check,
+TC-3.10.2-02,3.10.2 Qualifications - Education,Add with Level only,Functional,Positive,Medium,,PhD,"1. Select Level only
+2. Click Save",Entry is saved with other fields empty,Needs check,
+TC-3.10.2-03,3.10.2 Qualifications - Education,Add without Level,Functional,Negative,High,,,"1. Leave Level unselected
+2. Fill the other fields
+3. Click Save",'Required' error under Level; not saved,Needs check,
+TC-3.10.2-04,3.10.2 Qualifications - Education,Level dropdown options,UI,Positive,Low,,,1. Open the Level dropdown,List of education levels is available and selectable,Needs check,
+TC-3.10.2-05,3.10.2 Qualifications - Education,Non-numeric Year,Functional,Negative,Medium,,abcd,"1. Enter letters in Year
+2. Click Save",Validation error; not saved,Needs check,
+TC-3.10.2-06,3.10.2 Qualifications - Education,Year boundary values,Functional,Boundary,Low,,1900 ; 2100 ; 20025,"1. Enter 4-digit years such as 1900 and 2100, and 5 digits
+2. Click Save",Valid 4-digit years are accepted; invalid length is rejected,Needs check,
+TC-3.10.2-07,3.10.2 Qualifications - Education,Start Date later than End Date,Functional,Negative,High,,,"1. Enter Start 2002-27-04 and End 1998-01-04
+2. Click Save",Validation error; not saved,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.10.2-08,3.10.2 Qualifications - Education,Invalid date formats,Functional,Negative,Medium,,27/04/2002,"1. Enter invalid values in Start and End Date
+2. Click Save",Date-format errors; not saved,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.10.2-09,3.10.2 Qualifications - Education,Add several education levels,Functional,Positive,Medium,,,"1. Add Bachelor's Degree, then PhD","Both are listed (Level, Year, GPA/Score columns)",Needs check,
+TC-3.10.2-10,3.10.2 Qualifications - Education,Edit an existing education entry,Functional,Positive,Medium,At least one education entry record exists,,"1. Click the education entry link in the Education list
+2. Change GPA/Score from '3.5' to '3.8'
+3. Click Save",Success message shown; list shows the updated value; change persists after page refresh and re-login,Needs check,
+TC-3.10.2-11,3.10.2 Qualifications - Education,Cancel while adding an education entry,Functional,Positive,Low,,,"1. Click Add
+2. Fill in some fields
+3. Click Cancel","Form closes, no record is created, list is unchanged",Needs check,
+TC-3.10.2-12,3.10.2 Qualifications - Education,Add multiple education entries,Functional,Positive,Medium,,,"1. Add a first record and Save
+2. Add a second record with different values and Save",Both records are listed; the second does not overwrite the first,Needs check,
+TC-3.10.2-13,3.10.2 Qualifications - Education,Delete a single education entry,Functional,Positive,High,At least two education entry records exist,,"1. Tick the checkbox next to one record
+2. Click Delete
+3. Confirm if prompted",Only the selected record is removed; other records remain; success message shown,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.2-14,3.10.2 Qualifications - Education,Delete multiple education entries at once,Functional,Positive,Medium,At least three education entry records exist,,"1. Tick the checkbox of two or more records
+2. Click Delete
+3. Confirm if prompted",All selected records are removed; unselected records remain,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.2-15,3.10.2 Qualifications - Education,Click Delete with no record selected,Functional,Negative,Low,,,"1. Make sure no checkbox is ticked
+2. Click Delete",Nothing is deleted; Delete is disabled or a 'select a record' message appears,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.2-16,3.10.2 Qualifications - Education,"Header checkbox selects all records, then Delete",Functional,Positive,Low,,,"1. Tick the header checkbox in the list
+2. Verify all rows are ticked
+3. Click Delete and confirm",All records are removed; list shows 'No Records Found',Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.3-01,3.10.3 Qualifications - Skills,Add a skill with all fields,Functional,Positive,High,,Programming / 5 / comment,"1. Click Add under Skills
+2. Select a skill
+3. Enter years and comments
+4. Click Save",Skill listed with Skill and Years of Experience,Needs check,
+TC-3.10.3-02,3.10.3 Qualifications - Skills,Add a skill without years or comments,Functional,Positive,Medium,,Programming,"1. Select a skill only
+2. Click Save",Skill is saved,Needs check,
+TC-3.10.3-03,3.10.3 Qualifications - Skills,Add without selecting a Skill,Functional,Negative,High,,,"1. Leave Skill unselected
+2. Click Save",'Required' error under Skill; not saved,Needs check,
+TC-3.10.3-04,3.10.3 Qualifications - Skills,Non-numeric Years of Experience,Functional,Negative,Medium,,five,"1. Enter text
+2. Click Save",Validation error; not saved,Needs check,
+TC-3.10.3-05,3.10.3 Qualifications - Skills,Negative Years of Experience,Functional,Negative,Medium,,-3,"1. Enter a negative number
+2. Click Save",Rejected with a validation error,Needs check,
+TC-3.10.3-06,3.10.3 Qualifications - Skills,Years of Experience boundary values,Functional,Boundary,Low,,0 ; 50 ; 999,"1. Enter 0, a maximum realistic value and an excessive value
+2. Click Save",0 and valid values accepted; unrealistic or too-long values rejected,Needs check,
+TC-3.10.3-07,3.10.3 Qualifications - Skills,Decimal Years of Experience,Functional,Boundary,Low,,2.5,"1. Enter a decimal value
+2. Click Save",Behaviour is consistent (accepted with 1 decimal or clear error),Needs check,
+TC-3.10.3-08,3.10.3 Qualifications - Skills,Add the same skill twice,Functional,Negative,Medium,Skill 'Programming' already added,,"1. Add 'Programming'
+2. Add 'Programming' again","Duplicate is rejected with a clear message, or handled consistently",Needs check,
+TC-3.10.3-09,3.10.3 Qualifications - Skills,Edit an existing skill,Functional,Positive,Medium,At least one skill record exists,,"1. Click the skill link in the Skills list
+2. Change Years of Experience from '5' to '7'
+3. Click Save",Success message shown; list shows the updated value; change persists after page refresh and re-login,Needs check,
+TC-3.10.3-10,3.10.3 Qualifications - Skills,Cancel while adding a skill,Functional,Positive,Low,,,"1. Click Add
+2. Fill in some fields
+3. Click Cancel","Form closes, no record is created, list is unchanged",Needs check,
+TC-3.10.3-11,3.10.3 Qualifications - Skills,Add multiple skill records,Functional,Positive,Medium,,,"1. Add a first record and Save
+2. Add a second record with different values and Save",Both records are listed; the second does not overwrite the first,Needs check,
+TC-3.10.3-12,3.10.3 Qualifications - Skills,Delete a single skill,Functional,Positive,High,At least two skill records exist,,"1. Tick the checkbox next to one record
+2. Click Delete
+3. Confirm if prompted",Only the selected record is removed; other records remain; success message shown,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.3-13,3.10.3 Qualifications - Skills,Delete multiple skill records at once,Functional,Positive,Medium,At least three skill records exist,,"1. Tick the checkbox of two or more records
+2. Click Delete
+3. Confirm if prompted",All selected records are removed; unselected records remain,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.3-14,3.10.3 Qualifications - Skills,Click Delete with no record selected,Functional,Negative,Low,,,"1. Make sure no checkbox is ticked
+2. Click Delete",Nothing is deleted; Delete is disabled or a 'select a record' message appears,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.3-15,3.10.3 Qualifications - Skills,"Header checkbox selects all records, then Delete",Functional,Positive,Low,,,"1. Tick the header checkbox in the list
+2. Verify all rows are ticked
+3. Click Delete and confirm",All records are removed; list shows 'No Records Found',Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.4-01,3.10.4 Qualifications - Languages,Add a language with all fields,Functional,Positive,High,,English / Writing / Mother Tongue,"1. Click Add under Languages
+2. Select Language, Fluency and Competency
+3. Add comments
+4. Click Save","Language listed with Language, Fluency, Competency and Comments",Needs check,
+TC-3.10.4-02,3.10.4 Qualifications - Languages,Add without Language,Functional,Negative,High,,,"1. Leave Language unselected
+2. Click Save",'Required' error under Language; not saved,Needs check,
+TC-3.10.4-03,3.10.4 Qualifications - Languages,Add without Fluency,Functional,Negative,High,,,"1. Leave Fluency unselected
+2. Click Save",'Required' error under Fluency; not saved,Needs check,
+TC-3.10.4-04,3.10.4 Qualifications - Languages,Add without Competency,Functional,Negative,High,,,"1. Leave Competency unselected
+2. Click Save",'Required' error under Competency; not saved,Needs check,
+TC-3.10.4-05,3.10.4 Qualifications - Languages,Dropdown options are available,UI,Positive,Low,,,"1. Open the Language, Fluency and Competency dropdowns",Each dropdown lists selectable options,Needs check,
+TC-3.10.4-06,3.10.4 Qualifications - Languages,Duplicate language with the same fluency,Functional,Negative,Medium,English/Writing already added,,"1. Add English/Writing
+2. Add English/Writing again",Duplicate is rejected with a clear message,Needs check,
+TC-3.10.4-07,3.10.4 Qualifications - Languages,Same language with a different fluency,Functional,Positive,Medium,,,"1. Add English/Writing
+2. Add English/Speaking",Both entries are saved and listed,Needs check,
+TC-3.10.4-08,3.10.4 Qualifications - Languages,Edit an existing language entry,Functional,Positive,Medium,At least one language entry record exists,,"1. Click the language entry link in the Languages list
+2. Change Competency from 'Mother Tongue' to 'Good'
+3. Click Save",Success message shown; list shows the updated value; change persists after page refresh and re-login,Needs check,
+TC-3.10.4-09,3.10.4 Qualifications - Languages,Cancel while adding a language entry,Functional,Positive,Low,,,"1. Click Add
+2. Fill in some fields
+3. Click Cancel","Form closes, no record is created, list is unchanged",Needs check,
+TC-3.10.4-10,3.10.4 Qualifications - Languages,Add multiple language entries,Functional,Positive,Medium,,,"1. Add a first record and Save
+2. Add a second record with different values and Save",Both records are listed; the second does not overwrite the first,Needs check,
+TC-3.10.4-11,3.10.4 Qualifications - Languages,Delete a single language entry,Functional,Positive,High,At least two language entry records exist,,"1. Tick the checkbox next to one record
+2. Click Delete
+3. Confirm if prompted",Only the selected record is removed; other records remain; success message shown,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.4-12,3.10.4 Qualifications - Languages,Delete multiple language entries at once,Functional,Positive,Medium,At least three language entry records exist,,"1. Tick the checkbox of two or more records
+2. Click Delete
+3. Confirm if prompted",All selected records are removed; unselected records remain,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.4-13,3.10.4 Qualifications - Languages,Click Delete with no record selected,Functional,Negative,Low,,,"1. Make sure no checkbox is ticked
+2. Click Delete",Nothing is deleted; Delete is disabled or a 'select a record' message appears,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.4-14,3.10.4 Qualifications - Languages,"Header checkbox selects all records, then Delete",Functional,Positive,Low,,,"1. Tick the header checkbox in the list
+2. Verify all rows are ticked
+3. Click Delete and confirm",All records are removed; list shows 'No Records Found',Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.5-01,3.10.5 Qualifications - License,Add a license with all fields,Functional,Positive,High,,Certified Management Accountant (CMA) / 78654321345678 / 2011-13-04 / 2016-07-04,"1. Click Add under License
+2. Select a type, enter number and dates
+3. Click Save","License listed with License Type, Issued Date, Expiry Date",Needs check,
+TC-3.10.5-02,3.10.5 Qualifications - License,Add with License Type only,Functional,Positive,Medium,,,"1. Select License Type only
+2. Click Save",License is saved without number or dates,Needs check,
+TC-3.10.5-03,3.10.5 Qualifications - License,Add without License Type,Functional,Negative,High,,,"1. Leave License Type unselected
+2. Click Save",'Required' error under License Type; not saved,Needs check,
+TC-3.10.5-04,3.10.5 Qualifications - License,Expiry Date before Issued Date,Functional,Negative,High,,,"1. Enter Issued 2016-07-04 and Expiry 2011-13-04
+2. Click Save",Validation error; not saved,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.10.5-05,3.10.5 Qualifications - License,Invalid date formats,Functional,Negative,Medium,,13-04-2011,"1. Enter invalid dates
+2. Click Save",Date-format errors; not saved,Needs check,
+TC-3.10.5-06,3.10.5 Qualifications - License,License Number length boundary,Functional,Boundary,Low,,Check the limit in the app,"1. Enter a max-length number and Save
+2. Enter one more character and Save",Max length accepted; longer value rejected,Needs check,
+TC-3.10.5-07,3.10.5 Qualifications - License,Add a license that has already expired,Functional,Positive,Low,,Expiry 2016-07-04,"1. Enter an expiry date in the past
+2. Click Save",Saved normally and listed,Needs check,
+TC-3.10.5-08,3.10.5 Qualifications - License,Edit an existing license,Functional,Positive,Medium,At least one license record exists,,"1. Click the license link in the License list
+2. Change License Number from '78654321345678' to '11112222333344'
+3. Click Save",Success message shown; list shows the updated value; change persists after page refresh and re-login,Needs check,
+TC-3.10.5-09,3.10.5 Qualifications - License,Cancel while adding a license,Functional,Positive,Low,,,"1. Click Add
+2. Fill in some fields
+3. Click Cancel","Form closes, no record is created, list is unchanged",Needs check,
+TC-3.10.5-10,3.10.5 Qualifications - License,Add multiple license records,Functional,Positive,Medium,,,"1. Add a first record and Save
+2. Add a second record with different values and Save",Both records are listed; the second does not overwrite the first,Needs check,
+TC-3.10.5-11,3.10.5 Qualifications - License,Delete a single license,Functional,Positive,High,At least two license records exist,,"1. Tick the checkbox next to one record
+2. Click Delete
+3. Confirm if prompted",Only the selected record is removed; other records remain; success message shown,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.5-12,3.10.5 Qualifications - License,Delete multiple license records at once,Functional,Positive,Medium,At least three license records exist,,"1. Tick the checkbox of two or more records
+2. Click Delete
+3. Confirm if prompted",All selected records are removed; unselected records remain,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.5-13,3.10.5 Qualifications - License,Click Delete with no record selected,Functional,Negative,Low,,,"1. Make sure no checkbox is ticked
+2. Click Delete",Nothing is deleted; Delete is disabled or a 'select a record' message appears,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.5-14,3.10.5 Qualifications - License,"Header checkbox selects all records, then Delete",Functional,Positive,Low,,,"1. Tick the header checkbox in the list
+2. Verify all rows are ticked
+3. Click Delete and confirm",All records are removed; list shows 'No Records Found',Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.6-01,3.10.6 Qualifications - Attachments,Add an attachment with a comment,Functional,Positive,High,,"Certs.docx, comment 'Certificates'","1. Under Attachments click Add
+2. Click Browse and choose a file of 1MB or less
+3. Enter a comment
+4. Click Save","File is listed with File Name, Description, Size, Type, Date Added and Added By",Needs check,
+TC-3.10.6-02,3.10.6 Qualifications - Attachments,Add without a comment,Functional,Positive,Medium,,,"1. Click Browse and choose a file
+2. Leave Comment empty
+3. Click Save",File is uploaded (comment is optional),Needs check,
+TC-3.10.6-03,3.10.6 Qualifications - Attachments,Add a file larger than 1MB,Functional,Negative,High,,PDF about 1.5 MB,"1. Click Browse and choose a file bigger than 1MB
+2. Click Save",Rejected with a file-size error; nothing is added,Needs check,
+TC-3.10.6-04,3.10.6 Qualifications - Attachments,Add a file of exactly 1MB,Functional,Boundary,Medium,,"File of 1,048,576 bytes","1. Click Browse and choose a file of exactly 1MB
+2. Click Save",File is accepted,Needs check,
+TC-3.10.6-05,3.10.6 Qualifications - Attachments,Add without choosing a file,Functional,Negative,Medium,,,"1. Click Add
+2. Click Save without selecting a file",'Required' error under Select File; nothing is added,Needs check,
+TC-3.10.6-06,3.10.6 Qualifications - Attachments,Add different file types,Functional,Positive,Medium,,"cert.pdf, cert.jpg, cert.docx","1. Add a PDF, a JPG and a DOCX one after another",All are uploaded and show the right Type,Needs check,
+TC-3.10.6-07,3.10.6 Qualifications - Attachments,Add several attachments,Functional,Positive,Medium,,,1. Add three files one by one,All three are listed,Needs check,
+TC-3.10.6-08,3.10.6 Qualifications - Attachments,Download or open an uploaded file,Functional,Positive,Medium,An attachment exists,,1. Click the file name in the list,File downloads or opens with the original content,Needs check,
+TC-3.10.6-09,3.10.6 Qualifications - Attachments,Edit the attachment comment,Functional,Positive,Low,An attachment exists,,"1. Click Edit next to the attachment
+2. Change the comment
+3. Click Save",Description column shows the new comment,Needs check,
+TC-3.10.6-10,3.10.6 Qualifications - Attachments,Date Added and Added By are correct,Functional,Positive,Low,,,"1. Add a file
+2. Check the list row",Date Added is today's date and Added By is the logged-in user,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.10.6-11,3.10.6 Qualifications - Attachments,Delete a single attachment,Functional,Positive,High,Two or more attachments exist,,"1. Tick one attachment
+2. Click Delete
+3. Confirm if prompted",Only that attachment is removed,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.6-12,3.10.6 Qualifications - Attachments,Delete several attachments,Functional,Positive,Medium,Three or more attachments exist,,"1. Tick two or more
+2. Click Delete",All selected attachments are removed,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.10.6-13,3.10.6 Qualifications - Attachments,Cancel while adding,Functional,Positive,Low,,,"1. Click Add
+2. Click Browse and choose a file
+3. Click Cancel",Form closes and no file is uploaded,Needs check,
+TC-3.11-01,3.11 Membership,Open the Memberships tab,Functional,Positive,Medium,,,1. Navigate to My Info and open Memberships,'Assigned Memberships' list opens with Add and Delete buttons,Needs check,
+TC-3.11-02,3.11 Membership,Add a membership with all fields,Functional,Positive,High,,Association for Financial Professionals (AFP) / Company / 5500 / United States Dollar / 2009-06-01 / 2013-19-04,"1. Click Add
+2. Fill all fields
+3. Click Save","Listed with Membership, Subscription Paid By, Amount, Currency, Commence Date, Renewal Date",Needs check,
+TC-3.11-03,3.11 Membership,Add with Membership only,Functional,Positive,Medium,,,"1. Select Membership only
+2. Click Save",Saved with other fields empty,Needs check,
+TC-3.11-04,3.11 Membership,Add without Membership,Functional,Negative,High,,,"1. Leave Membership unselected
+2. Click Save",'Required' error under Membership; not saved,Needs check,
+TC-3.11-05,3.11 Membership,Subscription Paid By options,UI,Positive,Low,,,1. Open the Subscription Paid By dropdown,Options such as Company and Individual are available,Needs check,
+TC-3.11-06,3.11 Membership,Non-numeric Subscription Amount,Functional,Negative,Medium,,abc,"1. Enter letters
+2. Click Save",Validation error; not saved,Needs check,
+TC-3.11-07,3.11 Membership,Negative Subscription Amount,Functional,Negative,Medium,,-100,"1. Enter a negative number
+2. Click Save",Rejected with a validation error,Needs check,
+TC-3.11-08,3.11 Membership,Decimal Subscription Amount,Functional,Positive,Low,,5500.50,"1. Enter a decimal amount
+2. Click Save",Saved and shown with 2 decimals,Needs check,
+TC-3.11-09,3.11 Membership,Amount without a Currency,Functional,Negative,Low,,,"1. Enter Amount without Currency
+2. Click Save",Behaviour is consistent: either a currency is required or the amount saves without it,Needs check,
+TC-3.11-10,3.11 Membership,Renewal Date before Commence Date,Functional,Negative,High,,,"1. Commence 2013-19-04, Renewal 2009-06-01
+2. Click Save",Validation error; not saved,Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-3.11-11,3.11 Membership,Invalid date formats,Functional,Negative,Medium,,19/04/2013,"1. Enter invalid dates
+2. Click Save",Date-format errors; not saved,Needs check,
+TC-3.11-12,3.11 Membership,Edit an existing membership,Functional,Positive,Medium,At least one membership record exists,,"1. Click the membership link in the Assigned Memberships list
+2. Change Subscription Amount from '5500' to '6000'
+3. Click Save",Success message shown; list shows the updated value; change persists after page refresh and re-login,Needs check,
+TC-3.11-13,3.11 Membership,Cancel while adding a membership,Functional,Positive,Low,,,"1. Click Add
+2. Fill in some fields
+3. Click Cancel","Form closes, no record is created, list is unchanged",Needs check,
+TC-3.11-14,3.11 Membership,Add multiple membership records,Functional,Positive,Medium,,,"1. Add a first record and Save
+2. Add a second record with different values and Save",Both records are listed; the second does not overwrite the first,Needs check,
+TC-3.11-15,3.11 Membership,Delete a single membership,Functional,Positive,High,At least two membership records exist,,"1. Tick the checkbox next to one record
+2. Click Delete
+3. Confirm if prompted",Only the selected record is removed; other records remain; success message shown,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.11-16,3.11 Membership,Delete multiple membership records at once,Functional,Positive,Medium,At least three membership records exist,,"1. Tick the checkbox of two or more records
+2. Click Delete
+3. Confirm if prompted",All selected records are removed; unselected records remain,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.11-17,3.11 Membership,Click Delete with no record selected,Functional,Negative,Low,,,"1. Make sure no checkbox is ticked
+2. Click Delete",Nothing is deleted; Delete is disabled or a 'select a record' message appears,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.11-18,3.11 Membership,"Header checkbox selects all records, then Delete",Functional,Positive,Low,,,"1. Tick the header checkbox in the list
+2. Verify all rows are ticked
+3. Click Delete and confirm",All records are removed; list shows 'No Records Found',Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-3.11-19,3.11 Membership,Add a valid attachment (membership),Functional,Positive,Medium,,"Certs.docx (about 10 KB), comment 'Certificates'","1. Under Attachments click Add
+2. Click Browse and choose a file of 1MB or less
+3. Enter an optional comment
+4. Click Save","File is listed with name, description, size, type, date added and added-by; success message shown",Needs check,
+TC-3.11-20,3.11 Membership,Add an attachment larger than 1MB (membership),Functional,Negative,Medium,,PDF of about 1.5 MB,"1. Under Attachments click Add
+2. Click Browse and choose a file bigger than 1MB
+3. Click Save",The file is rejected with a file-size error; nothing is added to the list,Needs check,
+TC-3.11-21,3.11 Membership,Delete an attachment (membership),Functional,Positive,Low,An attachment already exists,,"1. Tick the checkbox of an uploaded attachment
+2. Click Delete (attachments section)
+3. Confirm if prompted",Attachment is removed from the list,Needs check,"5.x usually asks for confirmation ('Yes, Delete'). Confirm and add it to the steps."
+TC-GEN-01,GEN Cross-Browser Compatibility,Login and open My Info in Chrome,Compatibility,Positive,High,Same test environment and account in every browser,Latest stable Chrome (Playwright channel 'chrome'),"1. Open the OrangeHRM login page in Chrome
+2. Log in with an ESS account
+3. Click My Info","Login succeeds and Personal Details opens; layout, left menu and photo display correctly",Needs check,
+TC-GEN-02,GEN Cross-Browser Compatibility,Edit and save Personal Details in Chrome,Compatibility,Positive,High,,Nick Name: Jimmy -> Jim,"1. Open Personal Details in Chrome
+2. Change Nick Name
+3. Click Save
+4. Refresh","Success message shown and the new value persists, same as in the other browsers",Needs check,"5.x may hide Nick Name by default (Admin > PIM > Configuration > Optional Fields > deprecated fields). If hidden, mark N/A."
+TC-GEN-03,GEN Cross-Browser Compatibility,Date picker and dropdowns in Chrome,Compatibility,Positive,Medium,,Mary O'Connor / Other / Wife / 1988-02-04,"1. Open Dependents > Add
+2. Select Relationship 'Other' (Please Specify appears)
+3. Pick Date of Birth from the calendar
+4. Click Save","Dropdown, conditional field and calendar work; record is saved with the chosen date",Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-GEN-04,GEN Cross-Browser Compatibility,Photo upload in Chrome,Compatibility,Positive,Medium,,"Image.jpg, 200x200","1. Open the Photograph page
+2. Choose a JPG of 1MB or less
+3. Click Upload",File chooser works and the photo is uploaded and displayed,Needs check,5.x: click the avatar > change profile picture page. Button names (Upload/Save) may differ. The 1MB/jpg/png/gif/200x200 hint IS shown on Add Employee (verified). Check the exact button names and the file-type/size rules on 5.9.
+TC-GEN-05,GEN Cross-Browser Compatibility,Login and open My Info in Firefox,Compatibility,Positive,High,Same test environment and account in every browser,Latest stable Firefox (Playwright 'firefox'),"1. Open the OrangeHRM login page in Firefox
+2. Log in with an ESS account
+3. Click My Info","Login succeeds and Personal Details opens; layout, left menu and photo display correctly",Needs check,
+TC-GEN-06,GEN Cross-Browser Compatibility,Edit and save Personal Details in Firefox,Compatibility,Positive,High,,Nick Name: Jimmy -> Jim,"1. Open Personal Details in Firefox
+2. Change Nick Name
+3. Click Save
+4. Refresh","Success message shown and the new value persists, same as in the other browsers",Needs check,"5.x may hide Nick Name by default (Admin > PIM > Configuration > Optional Fields > deprecated fields). If hidden, mark N/A."
+TC-GEN-07,GEN Cross-Browser Compatibility,Date picker and dropdowns in Firefox,Compatibility,Positive,Medium,,Mary O'Connor / Other / Wife / 1988-02-04,"1. Open Dependents > Add
+2. Select Relationship 'Other' (Please Specify appears)
+3. Pick Date of Birth from the calendar
+4. Click Save","Dropdown, conditional field and calendar work; record is saved with the chosen date",Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-GEN-08,GEN Cross-Browser Compatibility,Photo upload in Firefox,Compatibility,Positive,Medium,,"Image.jpg, 200x200","1. Open the Photograph page
+2. Choose a JPG of 1MB or less
+3. Click Upload",File chooser works and the photo is uploaded and displayed,Needs check,5.x: click the avatar > change profile picture page. Button names (Upload/Save) may differ. The 1MB/jpg/png/gif/200x200 hint IS shown on Add Employee (verified). Check the exact button names and the file-type/size rules on 5.9.
+TC-GEN-09,GEN Cross-Browser Compatibility,Login and open My Info in Edge,Compatibility,Positive,High,Same test environment and account in every browser,Latest stable Edge (Playwright channel 'msedge'),"1. Open the OrangeHRM login page in Edge
+2. Log in with an ESS account
+3. Click My Info","Login succeeds and Personal Details opens; layout, left menu and photo display correctly",Needs check,
+TC-GEN-10,GEN Cross-Browser Compatibility,Edit and save Personal Details in Edge,Compatibility,Positive,High,,Nick Name: Jimmy -> Jim,"1. Open Personal Details in Edge
+2. Change Nick Name
+3. Click Save
+4. Refresh","Success message shown and the new value persists, same as in the other browsers",Needs check,"5.x may hide Nick Name by default (Admin > PIM > Configuration > Optional Fields > deprecated fields). If hidden, mark N/A."
+TC-GEN-11,GEN Cross-Browser Compatibility,Date picker and dropdowns in Edge,Compatibility,Positive,Medium,,Mary O'Connor / Other / Wife / 1988-02-04,"1. Open Dependents > Add
+2. Select Relationship 'Other' (Please Specify appears)
+3. Pick Date of Birth from the calendar
+4. Click Save","Dropdown, conditional field and calendar work; record is saved with the chosen date",Needs check,Date format follows Admin > Localization in 5.x (default yyyy-mm-dd). Confirm.
+TC-GEN-12,GEN Cross-Browser Compatibility,Photo upload in Edge,Compatibility,Positive,Medium,,"Image.jpg, 200x200","1. Open the Photograph page
+2. Choose a JPG of 1MB or less
+3. Click Upload",File chooser works and the photo is uploaded and displayed,Needs check,5.x: click the avatar > change profile picture page. Button names (Upload/Save) may differ. The 1MB/jpg/png/gif/200x200 hint IS shown on Add Employee (verified). Check the exact button names and the file-type/size rules on 5.9.
+TC-3.0-07,3.0 Permissions & Access,ESS user sees My Info but not Admin or PIM in the main menu,Functional,Positive,High,,Fresh ESS user created by the setup step,"1. Log in as an ESS user
+2. Look at the left main menu","Main menu shows Leave, Time, My Info, Performance, Dashboard, Directory, Claim and Buzz; Admin, PIM, Recruitment and Maintenance are not shown",Verified,Seen in an ESS screenshot and PASSED in an automated run on the live demo.
+TC-3.0-08,3.0 Permissions & Access,My Info opens the user's own Personal Details record,Functional,Positive,High,,,"1. Log in as an ESS user
+2. Click My Info in the left menu",Personal Details of the logged-in user opens (URL contains .../pim/viewPersonalDetails/empNumber/<own number>),Verified,PASSED in an automated run on the live demo.
+TC-SETUP-01,"SETUP Add Employee (Admin, framework precondition)",Save an empty Add Employee form with login details,Functional,Negative,High,Logged in as Admin; PIM > Add Employee page is open,,"1. Open Add Employee
+2. Switch on 'Create Login Details'
+3. Click Save with every field empty","'Required' errors are shown (at least four: First Name, Last Name, Username, Password); no employee is created",Verified,Confirmed with Playwright codegen assertions on the 5.9 demo.
+TC-SETUP-02,"SETUP Add Employee (Admin, framework precondition)",Username shorter than 5 characters,Functional,Boundary,Medium,Logged in as Admin; PIM > Add Employee page is open,"Generated: random text, exactly (min - 1) = 4 characters","1. Switch on 'Create Login Details'
+2. Type a 1-character Username",Message 'Should be at least 5 characters' is shown,Verified,Confirmed with Playwright codegen assertions on the 5.9 demo.
+TC-SETUP-03,"SETUP Add Employee (Admin, framework precondition)",Password shorter than 7 characters,Functional,Boundary,Medium,Logged in as Admin; PIM > Add Employee page is open,"Generated: random text, exactly (min - 1) = 6 characters","1. Switch on 'Create Login Details'
+2. Type a 2-character Password",Message 'Should have at least 7 characters' is shown,Verified,Confirmed with Playwright codegen assertions on the 5.9 demo.
+TC-SETUP-04,"SETUP Add Employee (Admin, framework precondition)",Password and Confirm Password do not match,Functional,Negative,Medium,Logged in as Admin; PIM > Add Employee page is open,Generated: two different strong passwords,"1. Switch on 'Create Login Details'
+2. Type a valid Password
+3. Type a different Confirm Password",Message 'Passwords do not match' is shown,Verified,Confirmed with Playwright codegen assertions on the 5.9 demo.
+TC-SETUP-05,"SETUP Add Employee (Admin, framework precondition)",Create an employee with login details (creates the ESS user for the run),Functional,Positive,High,Logged in as Admin; PIM > Add Employee page is open,"Generated by test-data/users.ts (unique username, strong password, random name)","1. Open Add Employee
+2. Enter First and Last Name
+3. Switch on 'Create Login Details'
+4. Enter a unique Username and a strong Password twice
+5. Click Save",Employee is created and the browser opens the new employee's Personal Details page; the new user can log in and is an ESS user,Verified,PASSED in an automated run on the live demo (the setup step creates the ESS user and logs in as that user).
+TC-SETUP-06,"SETUP Add Employee (Admin, framework precondition)",A password that meets the policy shows no length error,Functional,Positive,Medium,Logged in as Admin; PIM > Add Employee page is open,"Generated: strong password (upper, lower, digit, symbol)","1. Switch on 'Create Login Details'
+2. Type a generated strong password",No 'Should have at least 7 characters' message is shown,Needs check,
+TC-3.1-28,3.1 Personal Details,No Edit button: the fields are editable directly,UI,Positive,Medium,,,"1. Open Personal Details
+2. Look at the form",Editable fields can be typed in at once and a Save button is shown; there is no separate Edit button,Verified,Seen on 5.9 in an ESS screenshot.
+TC-3.1-29,3.1 Personal Details,Date fields show the format placeholder yyyy-dd-mm,UI,Positive,Low,,,"1. Open Personal Details
+2. Look at License Expiry Date and Date of Birth",Both date fields show the placeholder 'yyyy-dd-mm' and a calendar icon (day comes before month),Verified,Seen on 5.9 in an ESS screenshot. Format is an Admin > Localization setting.
+TC-3.1-30,3.1 Personal Details,Custom Fields section is displayed,UI,Positive,Medium,,Fields configured by Admin on the demo (may differ on another instance),"1. Open Personal Details
+2. Scroll to Custom Fields","Custom Fields shows Blood Type (dropdown) and Test_Field (text) with their own Save button. The Admin can add or remove custom fields, so other fields may appear",Needs check,"Seen only in a cropped screenshot (no header or side panel), so it may be the Admin view. The ESS screenshot does show the Custom Fields heading. Confirm with the test run or explore-output. The custom fields are configured on the shared demo and change over time: DEPARTMENT was seen once, a later Admin screenshot shows only Blood Type and Test_Field. Do not rely on a fixed list."
+TC-3.1-31,3.1 Personal Details,Save Custom Fields,Functional,Positive,Medium,,Generated text for Test_Field,"1. Select a Blood Type
+2. Type a value in Test_Field
+3. Click the Save button of the Custom Fields section
+4. Refresh",Success message shown; both values are still there after refresh,Needs check,
+TC-3.1-32,3.1 Personal Details,Custom Fields Save is independent of the Personal Details Save,Functional,Positive,Low,,,"1. Change Other Id (do not save)
+2. Change Test_Field and click the Custom Fields Save
+3. Refresh",Test_Field is saved; the unsaved Other Id change is not,Needs check,
+TC-3.1-33,3.1 Personal Details,Attachments list shows its columns,UI,Positive,Low,,,"1. Open Personal Details
+2. Scroll to Attachments","'Attachments' has an Add button; with no files it shows 'No Records Found' and the columns File Name, Description, Size, Type, Date Added, Added By, Actions",Needs check,"Seen only in a cropped screenshot (no header or side panel), so it may be the Admin view. The ESS screenshot does show the Custom Fields heading. Confirm with the test run or explore-output."
+TC-3.10.6-14,3.10.6 Qualifications - Attachments,Add Attachment form shows its fields and hint,UI,Positive,Low,,,1. Under Attachments click Add,"'Add Attachment' shows 'Select File*' with a Browse button, the hint 'Accepts up to 1MB', an optional Comment box, and Cancel and Save buttons",Needs check,Seen on 5.9 in a cropped screenshot (Personal Details > Add Attachment); it may be the Admin view. The hint shows a size limit but no file-type restriction.

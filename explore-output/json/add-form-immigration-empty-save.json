@@ -1,0 +1,169 @@
+{
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewImmigration/empNumber/186",
+  "headings": [
+    "PIM",
+    "Aglae Gleichnerfke",
+    "Add Immigration",
+    "Assigned Immigration Records",
+    "Attachments"
+  ],
+  "tabs": [
+    "Personal Details",
+    "Contact Details",
+    "Emergency Contacts",
+    "Dependents",
+    "Immigration",
+    "Job",
+    "Salary",
+    "Report-to",
+    "Qualifications",
+    "Memberships"
+  ],
+  "inputs": [
+    {
+      "label": "",
+      "type": "text",
+      "name": null,
+      "placeholder": "Search",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Passport",
+      "type": "radio",
+      "name": null,
+      "placeholder": null,
+      "value": "1",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Visa",
+      "type": "radio",
+      "name": null,
+      "placeholder": null,
+      "value": "2",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Number",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": true
+    },
+    {
+      "label": "Issued Date",
+      "type": "text",
+      "name": null,
+      "placeholder": "yyyy-dd-mm",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Expiry Date",
+      "type": "text",
+      "name": null,
+      "placeholder": "yyyy-dd-mm",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Eligible Status",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Eligible Review Date",
+      "type": "text",
+      "name": null,
+      "placeholder": "yyyy-dd-mm",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Comments",
+      "type": "textarea",
+      "name": null,
+      "placeholder": "Type Comments here",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "dropdowns": [
+    {
+      "label": "Issued By",
+      "value": "-- Select --",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "disabled": false
+    },
+    {
+      "text": "Save",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    }
+  ],
+  "tableColumns": [
+    "Document",
+    "Number",
+    "Issued By",
+    "Issued Date",
+    "Expiry Date",
+    "Actions",
+    "File Name",
+    "Description",
+    "Size",
+    "Type",
+    "Date Added",
+    "Added By",
+    "Actions"
+  ],
+  "tableRows": 0,
+  "errors": [],
+  "toasts": [],
+  "dialogs": [],
+  "emptyMessage": true
+}

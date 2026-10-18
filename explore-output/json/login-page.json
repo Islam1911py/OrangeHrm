@@ -1,0 +1,49 @@
+{
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+  "headings": [
+    "Login"
+  ],
+  "tabs": [],
+  "inputs": [
+    {
+      "label": "",
+      "type": "hidden",
+      "name": "_token",
+      "placeholder": null,
+      "value": "4ba4d7.xW1QvPLE9w_yPcaMRVA85KZxWGFVkxEwXWT-wd1--8E.py8044Ocn33fbqn_Jh9-p-MhKRg7xVBaDyewh4oZmpawKBjPh5KeYLQMtQ",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Username",
+      "type": "text",
+      "name": "username",
+      "placeholder": "Username",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Password",
+      "type": "password",
+      "name": "password",
+      "placeholder": "Password",
+      "value": "",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "dropdowns": [],
+  "buttons": [
+    {
+      "text": "Login",
+      "disabled": false
+    }
+  ],
+  "tableColumns": [],
+  "tableRows": 0,
+  "errors": [],
+  "toasts": [],
+  "dialogs": [],
+  "emptyMessage": false
+}

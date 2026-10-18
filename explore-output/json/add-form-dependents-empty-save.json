@@ -1,0 +1,116 @@
+{
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewDependents/empNumber/186",
+  "headings": [
+    "PIM",
+    "Aglae Gleichnerfke",
+    "Add Dependent",
+    "Assigned Dependents",
+    "Attachments"
+  ],
+  "tabs": [
+    "Personal Details",
+    "Contact Details",
+    "Emergency Contacts",
+    "Dependents",
+    "Immigration",
+    "Job",
+    "Salary",
+    "Report-to",
+    "Qualifications",
+    "Memberships"
+  ],
+  "inputs": [
+    {
+      "label": "",
+      "type": "text",
+      "name": null,
+      "placeholder": "Search",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Name",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": true
+    },
+    {
+      "label": "Date of Birth",
+      "type": "text",
+      "name": null,
+      "placeholder": "yyyy-dd-mm",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "dropdowns": [
+    {
+      "label": "Relationship",
+      "value": "-- Select --",
+      "disabled": false,
+      "required": true
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "disabled": false
+    },
+    {
+      "text": "Save",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    }
+  ],
+  "tableColumns": [
+    "Name",
+    "Relationship",
+    "Date of Birth",
+    "Actions",
+    "File Name",
+    "Description",
+    "Size",
+    "Type",
+    "Date Added",
+    "Added By",
+    "Actions"
+  ],
+  "tableRows": 0,
+  "errors": [
+    "Required",
+    "Required"
+  ],
+  "toasts": [],
+  "dialogs": [],
+  "emptyMessage": true
+}

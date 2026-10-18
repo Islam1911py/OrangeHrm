@@ -1,0 +1,199 @@
+{
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewQualifications/empNumber/186",
+  "headings": [
+    "PIM",
+    "Aglae Gleichnerfke",
+    "Qualifications",
+    "Work Experience",
+    "Education",
+    "Skills",
+    "Languages",
+    "Add License",
+    "License",
+    "Attachments"
+  ],
+  "tabs": [
+    "Personal Details",
+    "Contact Details",
+    "Emergency Contacts",
+    "Dependents",
+    "Immigration",
+    "Job",
+    "Salary",
+    "Report-to",
+    "Qualifications",
+    "Memberships"
+  ],
+  "inputs": [
+    {
+      "label": "",
+      "type": "text",
+      "name": null,
+      "placeholder": "Search",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "License Number",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Issued Date",
+      "type": "text",
+      "name": null,
+      "placeholder": "yyyy-dd-mm",
+      "value": "2030-10-10",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Expiry Date",
+      "type": "text",
+      "name": null,
+      "placeholder": "yyyy-dd-mm",
+      "value": "2020-10-10",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "dropdowns": [
+    {
+      "label": "License Type",
+      "value": "-- Select --",
+      "disabled": false,
+      "required": true
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Cancel",
+      "disabled": false
+    },
+    {
+      "text": "Save",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    },
+    {
+      "text": "Add",
+      "disabled": false
+    }
+  ],
+  "tableColumns": [
+    "Company",
+    "Job Title",
+    "From",
+    "To",
+    "Comment",
+    "Actions",
+    "Level",
+    "Year",
+    "GPA/Score",
+    "Actions",
+    "Skill",
+    "Years of Experience",
+    "Actions",
+    "Language",
+    "Fluency",
+    "Competency",
+    "Comments",
+    "Actions",
+    "License Type",
+    "Issued Date",
+    "Expiry Date",
+    "Actions",
+    "File Name",
+    "Description",
+    "Size",
+    "Type",
+    "Date Added",
+    "Added By",
+    "Actions"
+  ],
+  "tableRows": 0,
+  "errors": [
+    "Expiry date should be after issued date"
+  ],
+  "toasts": [],
+  "dialogs": [],
+  "emptyMessage": true
+}

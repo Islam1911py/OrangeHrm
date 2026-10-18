@@ -1,0 +1,196 @@
+{
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/186",
+  "headings": [
+    "PIM",
+    "Aglae Gleichnerfke",
+    "Personal Details",
+    "Custom Fields",
+    "Add Attachment"
+  ],
+  "tabs": [
+    "Personal Details",
+    "Contact Details",
+    "Emergency Contacts",
+    "Dependents",
+    "Immigration",
+    "Job",
+    "Salary",
+    "Report-to",
+    "Qualifications",
+    "Memberships"
+  ],
+  "inputs": [
+    {
+      "label": "",
+      "type": "text",
+      "name": null,
+      "placeholder": "Search",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "text",
+      "name": "firstName",
+      "placeholder": "First Name",
+      "value": "Aglae",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "text",
+      "name": "middleName",
+      "placeholder": "Middle Name",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "text",
+      "name": "lastName",
+      "placeholder": "Last Name",
+      "value": "Gleichnerfke",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Employee Id",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "0388",
+      "disabled": true,
+      "required": false
+    },
+    {
+      "label": "Other Id",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Driver's License Number",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": true,
+      "required": false
+    },
+    {
+      "label": "License Expiry Date",
+      "type": "text",
+      "name": null,
+      "placeholder": "yyyy-dd-mm",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Date of Birth",
+      "type": "text",
+      "name": null,
+      "placeholder": "yyyy-dd-mm",
+      "value": "",
+      "disabled": true,
+      "required": false
+    },
+    {
+      "label": "Male",
+      "type": "radio",
+      "name": null,
+      "placeholder": null,
+      "value": "1",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Female",
+      "type": "radio",
+      "name": null,
+      "placeholder": null,
+      "value": "2",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Test_Field",
+      "type": "text",
+      "name": null,
+      "placeholder": null,
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Select File",
+      "type": "file",
+      "name": null,
+      "placeholder": null,
+      "value": "C:\\fakepath\\auto_3g9hwj.txt",
+      "disabled": false,
+      "required": true
+    },
+    {
+      "label": "Comment",
+      "type": "textarea",
+      "name": null,
+      "placeholder": "Type comment here",
+      "value": "",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "dropdowns": [
+    {
+      "label": "Nationality",
+      "value": "-- Select --",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Marital Status",
+      "value": "-- Select --",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Blood Type",
+      "value": "-- Select --",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Save",
+      "disabled": false
+    },
+    {
+      "text": "Save",
+      "disabled": false
+    },
+    {
+      "text": "Cancel",
+      "disabled": false
+    },
+    {
+      "text": "Save",
+      "disabled": false
+    }
+  ],
+  "tableColumns": [],
+  "tableRows": 0,
+  "errors": [
+    "Attachment Size Exceeded"
+  ],
+  "toasts": [],
+  "dialogs": [],
+  "emptyMessage": false
+}

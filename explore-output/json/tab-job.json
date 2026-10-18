@@ -1,0 +1,97 @@
+{
+  "url": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewJobDetails/empNumber/186",
+  "headings": [
+    "PIM",
+    "Aglae Gleichnerfke",
+    "Job Details",
+    "Attachments"
+  ],
+  "tabs": [
+    "Personal Details",
+    "Contact Details",
+    "Emergency Contacts",
+    "Dependents",
+    "Immigration",
+    "Job",
+    "Salary",
+    "Report-to",
+    "Qualifications",
+    "Memberships"
+  ],
+  "inputs": [
+    {
+      "label": "",
+      "type": "text",
+      "name": null,
+      "placeholder": "Search",
+      "value": "",
+      "disabled": false,
+      "required": false
+    },
+    {
+      "label": "Joined Date",
+      "type": "text",
+      "name": null,
+      "placeholder": "yyyy-dd-mm",
+      "value": "",
+      "disabled": true,
+      "required": false
+    },
+    {
+      "label": "",
+      "type": "checkbox",
+      "name": null,
+      "placeholder": null,
+      "value": "on",
+      "disabled": false,
+      "required": false
+    }
+  ],
+  "dropdowns": [
+    {
+      "label": "Job Title",
+      "value": "-- Select --",
+      "disabled": true,
+      "required": false
+    },
+    {
+      "label": "Job Category",
+      "value": "-- Select --",
+      "disabled": true,
+      "required": false
+    },
+    {
+      "label": "Sub Unit",
+      "value": "-- Select --",
+      "disabled": true,
+      "required": false
+    },
+    {
+      "label": "Location",
+      "value": "-- Select --",
+      "disabled": true,
+      "required": false
+    },
+    {
+      "label": "Employment Status",
+      "value": "-- Select --",
+      "disabled": true,
+      "required": false
+    }
+  ],
+  "buttons": [],
+  "tableColumns": [
+    "File Name",
+    "Description",
+    "Size",
+    "Type",
+    "Date Added",
+    "Added By",
+    "Actions"
+  ],
+  "tableRows": 0,
+  "errors": [],
+  "toasts": [],
+  "dialogs": [],
+  "emptyMessage": true
+}
