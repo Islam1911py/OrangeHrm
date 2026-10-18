@@ -1,0 +1,4 @@
+ok   Login page
+FAIL Create a fresh ESS user as Admin: page.waitForURL: Timeout 45000ms exceeded.
+
+Done. Send the folder "explore-output" (zipped). Problems: 1
